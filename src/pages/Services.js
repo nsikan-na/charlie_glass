@@ -1,13 +1,18 @@
 import React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 export default function Services() {
   return (
     <>
-      <h1 className="h1">Services</h1>
-      <p className="p">
+      <Typography variant="h3" align="center">
+        Services
+      </Typography>
+      <Typography className="p">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      </p>
-      <div
+      </Typography>
+      <Container
         style={{
           display: "flex",
           justifyContent: "space-evenly",
@@ -33,7 +38,7 @@ export default function Services() {
         ].map((content) => {
           return (
             <>
-              <div
+              <Container
                 style={{
                   backgroundColor: "blue",
                   color: "white",
@@ -41,13 +46,17 @@ export default function Services() {
                   margin: "3%",
                 }}
               >
-                <div style={{ textAlign: "center" }}>{`${content.title}:`}</div>
-                <div style={{ textAlign: "center" }}>{`${content.p}`}</div>
-              </div>
+                <Typography
+                  style={{ textAlign: "center" }}
+                >{`${content.title}:`}</Typography>
+                <Typography
+                  style={{ textAlign: "center" }}
+                >{`${content.p}`}</Typography>
+              </Container>
             </>
           );
         })}
-      </div>
+      </Container>
     </>
   );
 }

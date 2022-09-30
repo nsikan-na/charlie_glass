@@ -8,7 +8,6 @@ import Services from "./pages/Services";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import "./index.css";
-import "antd/dist/antd.css";
 export default function App() {
   return (
     <BrowserRouter>

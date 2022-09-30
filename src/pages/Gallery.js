@@ -1,9 +1,14 @@
 import React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
 export default function Gallery() {
   return (
     <>
-      <h1 className="h1">Gallery</h1>
-      <div
+      <Typography variant="h3" align="center">
+        Gallery
+      </Typography>
+      <Container
         style={{
           display: "flex",
           justifyContent: "space-evenly",
@@ -29,16 +34,18 @@ export default function Gallery() {
         ].map((content) => {
           return (
             <>
-              <div style={{}}>
-                <div style={{ textAlign: "center" }}>{`${content.title}:`}</div>
+              <Container style={{}}>
+                <Typography
+                  style={{ textAlign: "center" }}
+                >{`${content.title}:`}</Typography>
                 {[content.imgs].map((img) => {
                   return <img src={img} height="250px" width="100%" />;
                 })}
-              </div>
+              </Container>
             </>
           );
         })}
-      </div>
+      </Container>
     </>
   );
 }
