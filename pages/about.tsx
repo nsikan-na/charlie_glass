@@ -11,13 +11,11 @@ const About = () => {
         variant="body1"
         style={{ textIndent: "2rem", margin: "auto", width: "70%" }}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        Glass company that originated in 2003. We specialize in everything that
+        has to do in glass; from a shower door to glass partitions. Anything the
+        customer desires our specialists are always there ensure that the
+        customer is 100% satisfied. Please contact us a 917-848-8128 for all
+        your glass needs.
       </Typography>
       <List>
         {[

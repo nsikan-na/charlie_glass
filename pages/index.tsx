@@ -12,7 +12,7 @@ const index = () => {
           color: "white",
         }}
       >
-        <img src="/2.png" alt="First slide" height="350px" width="100%" />
+        <img src="/2.png" alt="First slide" height="600px" width="100%" />
         <Box
           style={{
             background: "rgba(0, 0, 0, .6)",

@@ -9,10 +9,11 @@ export default function Services() {
       </Typography>
       <Typography
         variant="body1"
+        textAlign="center"
         style={{ textIndent: "2rem", margin: "auto", width: "70%" }}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        Anything the customer desires our specialists are always there ensure
+        that the customer is 100% satisfied.
       </Typography>
       <Stack
         direction={{ xs: "column", sm: "row" }}
