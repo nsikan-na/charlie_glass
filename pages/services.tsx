@@ -1,18 +1,21 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import { Card, Typography, CardContent, Stack, CardMedia } from "@mui/material";
+
 export default function Services() {
   return (
     <>
-      <Typography variant="h3" align="center">
+      <Typography variant="h3" textAlign="center" style={{ margin: "1rem" }}>
         Services
       </Typography>
-      <Typography className="p">
+      <Typography
+        variant="body1"
+        style={{ textIndent: "2rem", margin: "auto", width: "70%" }}
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
       </Typography>
-      <Container
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
         style={{
           display: "flex",
           justifyContent: "space-evenly",
@@ -37,26 +40,28 @@ export default function Services() {
           },
         ].map((content) => {
           return (
-            <>
-              <Container
+            <Card style={{ margin: "1%" }}>
+              <CardMedia component="img" image="1.png" alt={content.title} />
+              <CardContent
+                key={content.title}
                 style={{
-                  backgroundColor: "blue",
+                  backgroundColor: "#1769aa",
                   color: "white",
-                  padding: "1%",
-                  margin: "3%",
                 }}
               >
                 <Typography
-                  style={{ textAlign: "center" }}
+                  variant="h5"
+                  style={{ textAlign: "center", fontWeight: "bold" }}
                 >{`${content.title}:`}</Typography>
                 <Typography
-                  style={{ textAlign: "center" }}
+                  variant="body1"
+                  style={{ margin: "auto", width: "80%" }}
                 >{`${content.p}`}</Typography>
-              </Container>
-            </>
+              </CardContent>
+            </Card>
           );
         })}
-      </Container>
+      </Stack>
     </>
   );
 }

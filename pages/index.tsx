@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Image from "next/image";
+import { Card, CardContent, Stack } from "@mui/material";
 const index = () => {
   return (
     <>
@@ -12,13 +12,7 @@ const index = () => {
           color: "white",
         }}
       >
-        <img
-          className=""
-          src="/2.png"
-          alt="First slide"
-          height="350px"
-          width="100%"
-        />
+        <img src="/2.png" alt="First slide" height="350px" width="100%" />
         <Box
           style={{
             background: "rgba(0, 0, 0, .6)",
@@ -38,21 +32,31 @@ const index = () => {
               transform: "translate(-50%,20%)",
             }}
           >
-            <Typography variant="h3">Charlie Glass Inc.</Typography>
-            <Container>
-              <Typography>326 50th st. brooklyn, NY 11220</Typography>
-              <Typography>917-848-8128 INFO@CHARLIEGLASS.COM</Typography>
-            </Container>
+            <Typography
+              variant="h3"
+              style={{ marginBottom: "2rem", fontWeight: "bold" }}
+            >
+              Charlie Glass Inc.
+            </Typography>
+            <Stack
+              justifyContent="space-evenly"
+              alignItems="center"
+              direction={{ xs: "column", sm: "row" }}
+            >
+              <Typography variant="body1" style={{ fontWeight: "bold" }}>
+                326 50th st. brooklyn, NY 11220
+              </Typography>
+              <Typography variant="body1" style={{ fontWeight: "bold" }}>
+                917-848-8128 INFO@CHARLIEGLASS.COM
+              </Typography>
+            </Stack>
           </Container>
         </Box>
       </Box>
-      <Box
-        style={{
-          backgroundColor: "grey",
-          display: "flex",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-        }}
+      <Stack
+        justifyContent="space-evenly"
+        alignItems="center"
+        direction={{ xs: "column", sm: "row" }}
       >
         {[
           {
@@ -69,22 +73,25 @@ const index = () => {
           },
         ].map((content, i) => {
           return (
-            <Container key={i}>
-              <Typography
-                textAlign="center"
-                style={{
-                  color: "#1769aa",
-                  fontSize: "2rem",
-                  fontWeight: "575",
-                }}
-              >{`${content.title}`}</Typography>
-              <Typography
-                style={{ color: "white" }}
-              >{`${content.p}`}</Typography>
-            </Container>
+            <Card sx={{ maxWidth: 345 }} key={i}>
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  textAlign="center"
+                  style={{
+                    color: "#1769aa",
+                    fontWeight: "bold",
+                  }}
+                >{`${content.title}`}</Typography>
+                <Typography
+                  variant="body1"
+                  style={{ textIndent: "1rem" }}
+                >{`${content.p}`}</Typography>
+              </CardContent>
+            </Card>
           );
         })}
-      </Box>
+      </Stack>
     </>
   );
 };

@@ -1,18 +1,16 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import { Typography, Stack, Card, CardContent, CardMedia } from "@mui/material";
+
 export default function Gallery() {
   return (
     <>
-      <Typography variant="h3" align="center">
+      <Typography variant="h3" align="center" style={{ margin: "1rem" }}>
         Gallery
       </Typography>
-      <Container
-        style={{
-          display: "flex",
-          justifyContent: "space-evenly",
-        }}
+      <Stack
+        justifyContent="space-evenly"
+        alignItems="center"
+        direction={{ xs: "column", sm: "row" }}
       >
         {[
           {
@@ -33,21 +31,27 @@ export default function Gallery() {
           },
         ].map((content) => {
           return (
-            <>
-              <Container style={{}}>
+            <Card style={{}} key={content.title}>
+              <CardContent>
                 <Typography
+                  variant="h5"
                   style={{ textAlign: "center" }}
                 >{`${content.title}:`}</Typography>
                 {[content.imgs].map((image, i) => {
                   return (
-                    <img src={image[0]} height="250px" width="100%" key={i} />
+                    <CardMedia
+                      key={i}
+                      component="img"
+                      image="1.png"
+                      alt={content.title}
+                    />
                   );
                 })}
-              </Container>
-            </>
+              </CardContent>
+            </Card>
           );
         })}
-      </Container>
+      </Stack>
     </>
   );
 }
