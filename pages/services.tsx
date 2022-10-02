@@ -1,68 +1,95 @@
 import React from "react";
-import { Card, Typography, CardContent, Stack, CardMedia } from "@mui/material";
+import {
+  Card,
+  Typography,
+  CardContent,
+  Stack,
+  CardMedia,
+  Grid,
+  Box,
+  useMediaQuery,
+} from "@mui/material";
 
 export default function Services() {
+  const matches = useMediaQuery("(max-width:1400px)");
   return (
     <>
-      <Typography variant="h3" textAlign="center" style={{ margin: "1rem" }}>
-        Services
-      </Typography>
-      <Typography
-        variant="body1"
-        textAlign="center"
-        style={{ textIndent: "2rem", margin: "auto", width: "70%" }}
-      >
-        Anything the customer desires our specialists are always there ensure
-        that the customer is 100% satisfied.
-      </Typography>
-      <Stack
-        direction={{ xs: "column", sm: "row" }}
-        style={{
-          display: "flex",
-          justifyContent: "space-evenly",
-        }}
-      >
-        {[
-          {
-            title: "Shower Doors",
-            p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-          },
-          {
-            title: "Shelves",
-            p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-          },
-          {
-            title: "Glass Parition",
-            p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-          },
-          {
-            title: "Storefronts",
-            p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-          },
-        ].map((content) => {
-          return (
-            <Card style={{ margin: "1%" }}>
-              <CardMedia component="img" image="1.png" alt={content.title} />
-              <CardContent
-                key={content.title}
-                style={{
-                  backgroundColor: "#1769aa",
-                  color: "white",
-                }}
+      <Box className={`${!matches ? "width" : ""}`}>
+        <Typography variant="h3" textAlign="center" style={{ margin: "1rem" }}>
+          Services
+        </Typography>
+        <Typography
+          variant="body1"
+          textAlign="center"
+          style={{ textIndent: "2rem", margin: "auto", width: "70%" }}
+        >
+          Anything the customer desires our specialists are always there ensure
+          that the customer is 100% satisfied.
+        </Typography>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 16 }}
+        >
+          {[
+            {
+              title: "Shower Doors",
+              p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+              img: "/ShowerDoors/1.jpg",
+            },
+            {
+              title: "Shelves",
+              p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+              img: "/Shelves/1.jpg",
+            },
+            {
+              title: "Glass Partition",
+              p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+              img: "/GlassPartition/1.jpg",
+            },
+            {
+              title: "Storefronts",
+              p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+              img: "/ShowerDoors/1.jpg",
+            },
+          ].map((content, i) => {
+            return (
+              <Grid
+                item
+                sm={4}
+                md={4}
+                key={i}
+                style={{ textAlign: "center", margin: "auto" }}
               >
-                <Typography
-                  variant="h5"
-                  style={{ textAlign: "center", fontWeight: "bold" }}
-                >{`${content.title}:`}</Typography>
-                <Typography
-                  variant="body1"
-                  style={{ margin: "auto", width: "80%" }}
-                >{`${content.p}`}</Typography>
-              </CardContent>
-            </Card>
-          );
-        })}
-      </Stack>
+                <Card style={{ margin: "1rem" }}>
+                  <CardMedia
+                    height="350px"
+                    component="img"
+                    image={content.img}
+                    alt={content.title}
+                  />
+                  <CardContent
+                    key={content.title}
+                    style={{
+                      backgroundColor: "blue",
+                      color: "white",
+                    }}
+                  >
+                    <Typography
+                      variant="h5"
+                      style={{ textAlign: "center", fontWeight: "bold" }}
+                    >{`${content.title}:`}</Typography>
+                    <Typography
+                      variant="body1"
+                      style={{ margin: "auto", width: "80%" }}
+                    >{`${content.p}`}</Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </Box>
     </>
   );
 }

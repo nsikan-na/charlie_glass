@@ -16,23 +16,51 @@ const ContactForm = () => {
   return (
     <>
       <Container style={{ margin: "1rem" }}>
-        <TextField label="Name" />
+        <TextField label="Name" style={{ margin: ".5rem" }} size="small" />
         <Stack direction={{ xs: "column", sm: "row" }}>
-          <TextField label="Email" />
-          <TextField label="Phone Number" />
+          <TextField label="Email" style={{ margin: ".5rem" }} size="small" />
+          <TextField
+            label="Phone Number"
+            style={{ margin: ".5rem" }}
+            size="small"
+          />
         </Stack>
+        <Typography
+          variant="body1"
+          style={{
+            margin: "1rem",
+          }}
+          textAlign="center"
+        >
+          What service can out specialists provide you with today?
+        </Typography>
         <Stack direction={{ xs: "column", sm: "row" }}>
           {[
             { label: "Shower Doors", name: "showerDoors" },
             { label: "Shelves", name: "shelves" },
             { label: "Glass Partition", name: "glassPartition" },
             { label: "Store Fronts", name: "storeFronts" },
-          ].map((content) => (
-            <FormControlLabel label={content.label} control={<Checkbox />} />
+          ].map((content, i) => (
+            <FormControlLabel
+              key={i}
+              label={content.label}
+              control={<Checkbox />}
+            />
           ))}
         </Stack>
-        <TextField label="Messages" fullWidth minRows="4" multiline={true} />
-        <Button variant="contained" style={{ margin: "1rem auto" }}>
+        <TextField
+          label="Messages"
+          style={{ width: "80%" }}
+          minRows="4"
+          multiline={true}
+          size="small"
+        />
+        <br />
+        <Button
+          variant="contained"
+          style={{ margin: "1rem auto" }}
+          className="unSelected"
+        >
           Contact
         </Button>
       </Container>
