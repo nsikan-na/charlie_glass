@@ -11,6 +11,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import ContactForm from "../components/contactForm";
+import "../index.css";
 export default function Contact() {
   const onFinish = (values: any) => {
     console.log("Success:", values);
@@ -23,13 +24,17 @@ export default function Contact() {
 
   return (
     <>
-      <Box className={`${!matches ? "width" : ""}`}>
-        <Typography
-          variant="h3"
-          textAlign="center"
-          style={{ margin: "1rem" }}
-        >
-          Contact
+      <Box
+        sx={[
+          {},
+          !matches && {
+            width: "70%",
+            margin: "auto",
+          },
+        ]}
+      >
+        <Typography variant="h3" textAlign="center" sx={{ margin: "1rem" }}>
+          Contact Us
         </Typography>
         <Stack
           justifyContent="space-evenly"
@@ -37,17 +42,17 @@ export default function Contact() {
           direction={{ xs: "column", sm: "row" }}
         >
           <Container
-            style={{
+            sx={{
               backgroundColor: "blue",
               color: "white",
               padding: "2%",
               margin: "1rem",
             }}
           >
-            <Typography variant="h5" textAlign="center" style={{}}>
+            <Typography variant="h5" textAlign="center" sx={{}}>
               Charlie Glass Inc.
             </Typography>
-            <List style={{ margin: "0 auto" }}>
+            <List sx={{ margin: "0 auto" }}>
               {[
                 { title: "Located at ", p: "326 50 st, Brooklyn, NY 11220" },
                 { title: "Call us or email us at", p: "917-848-8128" },
@@ -56,7 +61,7 @@ export default function Contact() {
                 return (
                   <ListItem key={content.title}>
                     <ListItemText
-                      style={{ textAlign: "center" }}
+                      sx={{ textAlign: "center" }}
                       primary={<Typography>{content.title}</Typography>}
                       secondary={<Typography>{content.p}</Typography>}
                     ></ListItemText>

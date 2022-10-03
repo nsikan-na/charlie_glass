@@ -1,7 +1,8 @@
-import React, { createContext, useEffect } from "react";
-import { AppProps } from "next/app";
+import React, { createContext, useEffect, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useLocation } from "react-router-dom";
+
 import {
   MenuItem,
   Button,
@@ -19,20 +20,19 @@ import {
   Chip,
   CssBaseline,
 } from "@mui/material";
+import "../index.css";
 import CopyrightIcon from "@mui/icons-material/Copyright";
-import "../global.css";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { Link, Outlet } from "react-router-dom";
 import ContactForm from "../components/contactForm";
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+function Layout() {
+  const [anchorElNav, setAnchorElNav] = useState(null);
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
   };
   const Context = createContext({});
-  const router = useRouter();
+  const { pathname } = useLocation();
+
   const pages = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
@@ -47,26 +47,25 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <Context.Provider value={{}}>
       <CssBaseline />
-      {router.pathname !== "/" ? (
+      {pathname !== "/" ? (
         <AppBar
           position="sticky"
-          style={{ backgroundColor: "white", color: "black" }}
+          sx={{ backgroundColor: "white", color: "black" }}
         >
           <Container maxWidth="xl">
             <Toolbar disableGutters>
-              <Link href="/" style={{ textDecoration: "none" }}>
+              <Link to="/" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="h5"
                   noWrap
                   component="a"
-                  href="/"
                   sx={{
                     mr: 2,
                     display: { xs: "none", md: "flex" },
                     fontFamily: "monospace",
                     fontWeight: 700,
                     letterSpacing: ".3rem",
-                    color: "inherit",
+                    color: "black",
                     textDecoration: "none",
                   }}
                 >
@@ -105,25 +104,26 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                 >
                   {pages.map((page, i) => (
                     <MenuItem key={i} onClick={handleCloseNavMenu}>
-                      <Link href={page.path} style={{ textDecoration: "none" }}>
+                      <Link
+                        to={page.path}
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
                         <Typography textAlign="center">{page.label}</Typography>
                       </Link>
                     </MenuItem>
                   ))}
                 </Menu>
               </Box>
-              <Link href="/" style={{ textDecoration: "none" }}>
+              <Link to="/" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="h5"
                   noWrap
-                  style={{}}
                   component="a"
-                  href=""
                   sx={{
                     display: { xs: "flex", md: "none" },
                     flexGrow: 1,
                     fontWeight: 700,
-                    color: "inherit",
+                    color: "black",
                     textDecoration: "none",
                   }}
                 >
@@ -131,12 +131,16 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                 </Typography>
               </Link>
               <Box
-                sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-                style={{ justifyContent: "center", alignItems: "center" }}
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex" },
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
                 {pages.map((page, i) => (
                   <Link
-                    href={page.path}
+                    to={page.path}
                     style={{ textDecoration: "none" }}
                     key={i}
                   >
@@ -144,14 +148,31 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                       key={page.label}
                       variant="contained"
                       onClick={handleCloseNavMenu}
-                      sx={{ my: 2, color: "white", display: "block" }}
-                      className="nav"
+                      sx={[
+                        {
+                          my: 2,
+                          color: "black",
+                          display: "block",
+                          backgroundColor: "white",
+                          border: "none",
+                          boxShadow: "none",
+                          "&:hover": {
+                            backgroundColor: "black",
+                            border: "none",
+                            boxShadow: "none",
+                            color: "white",
+                          },
+                        },
+                      ]}
                     >
                       <Typography
                         variant="body1"
-                        className={` ${
-                          page.path === router.pathname ? "selectedNav" : ""
-                        }`}
+                        sx={[
+                          {},
+                          page.path === pathname && {
+                            borderBottom: "1px solid black",
+                          },
+                        ]}
                       >
                         {page.label}
                       </Typography>
@@ -172,10 +193,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       ) : (
         ""
       )}
-      <Component {...pageProps} />
-      {router.pathname !== "/contact" ? (
+      <Outlet />
+      {pathname !== "/contact" ? (
         <Box
-          style={{
+          sx={{
             position: "relative",
             textAlign: "center",
             color: "white",
@@ -184,7 +205,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         >
           <img src="/1.png" alt="First slide" height="400px" width="100%" />
           <Box
-            style={{
+            sx={{
               background: "rgba(0, 0, 0, .6)",
               width: "100%",
               height: "98%",
@@ -195,7 +216,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             }}
           >
             <Container
-              style={{
+              sx={{
                 position: "absolute",
                 top: "1%",
                 left: "50%",
@@ -204,25 +225,23 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             >
               <Typography variant="h5">GET A FREE ESTIMATE TODAY</Typography>
 
-              <Typography
-                variant="body2"
-                style={{ width: "70%", margin: "auto" }}
-              >
+              <Typography variant="body2" sx={{ width: "70%", margin: "auto" }}>
                 The all-in-one shop for all of your glass work desires is
                 Charlie Glass. Together, we will design a layout that expressed
                 your business, lifestyle, and creativity. We are ready to help
                 you achieve your next project today.
               </Typography>
-              <Link href="/contact" style={{ textDecoration: "none" }}>
+              <Link to="/contact" style={{ textDecoration: "none" }}>
                 <Button
-                  className="unSelected"
                   variant="contained"
-                  style={{ marginTop: "1rem" }}
+                  sx={{
+                    marginTop: "1rem",
+                    backgroundColor: "blue",
+                  }}
                 >
                   Contact Us
                 </Button>
               </Link>
-              {/* <ContactForm /> */}
             </Container>
           </Box>
         </Box>
@@ -231,7 +250,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
       )}
 
       <Box
-        style={{
+        sx={{
           backgroundColor: "blue",
           color: "white",
           paddingBottom: "1rem",
@@ -251,7 +270,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
               <List key={content.title}>
                 <ListItem>
                   <ListItemText
-                    style={{ textAlign: "center" }}
+                    sx={{ textAlign: "center" }}
                     primary={
                       <Typography variant="body1">{content.title}</Typography>
                     }
@@ -268,11 +287,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           <Chip
             icon={<CopyrightIcon style={{ color: "white" }} />}
             label="Charlie Glass Inc."
-            style={{ color: "white", backgroundColor: "blue" }}
+            sx={{ color: "white", backgroundColor: "blue" }}
           />
         </Stack>
       </Box>
     </Context.Provider>
   );
 }
-export default MyApp;
+export default Layout;

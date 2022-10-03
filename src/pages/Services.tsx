@@ -14,14 +14,22 @@ export default function Services() {
   const matches = useMediaQuery("(max-width:1400px)");
   return (
     <>
-      <Box className={`${!matches ? "width" : ""}`}>
-        <Typography variant="h3" textAlign="center" style={{ margin: "1rem" }}>
+      <Box
+        sx={[
+          {},
+          !matches && {
+            width: "70%",
+            margin: "auto",
+          },
+        ]}
+      >
+        <Typography variant="h3" textAlign="center" sx={{ margin: "1rem" }}>
           Services
         </Typography>
         <Typography
           variant="body1"
           textAlign="center"
-          style={{ textIndent: "2rem", margin: "auto", width: "70%" }}
+          sx={{ textIndent: "2rem", margin: "auto", width: "70%" }}
         >
           Anything the customer desires our specialists are always there ensure
           that the customer is 100% satisfied.
@@ -59,9 +67,9 @@ export default function Services() {
                 sm={4}
                 md={4}
                 key={i}
-                style={{ textAlign: "center", margin: "auto" }}
+                sx={{ textAlign: "center", margin: "auto" }}
               >
-                <Card style={{ margin: "1rem" }}>
+                <Card sx={{ margin: "1rem" }}>
                   <CardMedia
                     height="350px"
                     component="img"
@@ -70,18 +78,18 @@ export default function Services() {
                   />
                   <CardContent
                     key={content.title}
-                    style={{
+                    sx={{
                       backgroundColor: "blue",
                       color: "white",
                     }}
                   >
                     <Typography
                       variant="h5"
-                      style={{ textAlign: "center", fontWeight: "bold" }}
+                      sx={{ textAlign: "center", fontWeight: "bold" }}
                     >{`${content.title}:`}</Typography>
                     <Typography
                       variant="body1"
-                      style={{ margin: "auto", width: "80%" }}
+                      sx={{ margin: "auto", width: "80%" }}
                     >{`${content.p}`}</Typography>
                   </CardContent>
                 </Card>

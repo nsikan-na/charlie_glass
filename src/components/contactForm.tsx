@@ -15,19 +15,19 @@ import {
 const ContactForm = () => {
   return (
     <>
-      <Container style={{ margin: "1rem" }}>
-        <TextField label="Name" style={{ margin: ".5rem" }} size="small" />
+      <Container sx={{ margin: "1rem" }}>
+        <TextField label="Name" sx={{ margin: ".5rem" }} size="small" />
         <Stack direction={{ xs: "column", sm: "row" }}>
-          <TextField label="Email" style={{ margin: ".5rem" }} size="small" />
+          <TextField label="Email" sx={{ margin: ".5rem" }} size="small" />
           <TextField
             label="Phone Number"
-            style={{ margin: ".5rem" }}
+            sx={{ margin: ".5rem" }}
             size="small"
           />
         </Stack>
         <Typography
           variant="body1"
-          style={{
+          sx={{
             margin: "1rem",
           }}
           textAlign="center"
@@ -50,7 +50,7 @@ const ContactForm = () => {
         </Stack>
         <TextField
           label="Messages"
-          style={{ width: "80%" }}
+          sx={{ width: "80%" }}
           minRows="4"
           multiline={true}
           size="small"
@@ -58,8 +58,7 @@ const ContactForm = () => {
         <br />
         <Button
           variant="contained"
-          style={{ margin: "1rem auto" }}
-          className="unSelected"
+          sx={{ margin: "1rem auto", backgroundColor: "blue" }}
         >
           Contact
         </Button>

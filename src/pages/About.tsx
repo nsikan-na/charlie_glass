@@ -1,15 +1,15 @@
 import React from "react";
 import { Typography, List, ListItem, ListItemText } from "@mui/material";
-
+import "../index.css";
 const About = () => {
   return (
     <>
-      <Typography variant="h3" textAlign="center" style={{ margin: "1rem" }}>
+      <Typography variant="h3" textAlign="center" sx={{ margin: "1rem" }}>
         About Us
       </Typography>
       <Typography
         variant="body1"
-        style={{ textIndent: "2rem", margin: "auto", width: "70%" }}
+        sx={{ textIndent: "2rem", margin: "auto", width: "70%" }}
       >
         Glass company that originated in 2003. We specialize in everything that
         has to do in glass; from a shower door to glass partitions. Anything the
@@ -26,7 +26,7 @@ const About = () => {
           return (
             <ListItem key={content.title}>
               <ListItemText
-                style={{ textAlign: "center" }}
+                sx={{ textAlign: "center" }}
                 primary={<Typography variant="h6">{content.title}</Typography>}
                 secondary={<Typography variant="body1">{content.p}</Typography>}
               ></ListItemText>

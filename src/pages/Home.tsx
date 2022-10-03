@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   MenuItem,
   Button,
@@ -12,19 +13,17 @@ import {
   CardContent,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
+import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import { useLocation } from "react-router-dom";
 
-const index = () => {
+const Home = () => {
   const [offset, setOffset] = useState(0);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
   };
-  const router = useRouter();
-  const [scroll, setScroll] = useState<boolean>(false);
+  const { pathname } = useLocation();
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -49,8 +48,7 @@ const index = () => {
           <AppBar
             elevation={0}
             position="fixed"
-            className={`${scroll ? "" : ""}`}
-            style={{
+            sx={{
               backgroundColor: "rgba(0, 0, 0,0)",
               border: "0",
               boxShadow: "0",
@@ -58,19 +56,18 @@ const index = () => {
           >
             <Container maxWidth="xl">
               <Toolbar disableGutters>
-                <Link href="/" style={{ textDecoration: "none" }}>
+                <Link to="/" style={{ textDecoration: "none" }}>
                   <Typography
                     variant="h5"
                     noWrap
                     component="a"
-                    href="/"
                     sx={{
                       mr: 2,
                       display: { xs: "none", md: "flex" },
                       fontFamily: "monospace",
                       fontWeight: 700,
                       letterSpacing: ".3rem",
-                      color: "inherit",
+                      color: "white",
                       textDecoration: "none",
                     }}
                   >
@@ -109,10 +106,7 @@ const index = () => {
                   >
                     {pages.map((page, i) => (
                       <MenuItem key={i} onClick={handleCloseNavMenu}>
-                        <Link
-                          href={page.path}
-                          style={{ textDecoration: "none" }}
-                        >
+                        <Link to={page.path} style={{ textDecoration: "none",color:'black' }}>
                           <Typography textAlign="center">
                             {page.label}
                           </Typography>
@@ -121,18 +115,16 @@ const index = () => {
                     ))}
                   </Menu>
                 </Box>
-                <Link href="/" style={{ textDecoration: "none" }}>
+                <Link to="/" style={{ textDecoration: "none" }}>
                   <Typography
                     variant="h5"
                     noWrap
-                    style={{}}
                     component="a"
-                    href=""
                     sx={{
                       display: { xs: "flex", md: "none" },
                       flexGrow: 1,
                       fontWeight: 700,
-                      color: "inherit",
+                      color: "white",
                       textDecoration: "none",
                     }}
                   >
@@ -140,12 +132,16 @@ const index = () => {
                   </Typography>
                 </Link>
                 <Box
-                  sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-                  style={{ justifyContent: "center", alignItems: "center" }}
+                  sx={{
+                    flexGrow: 1,
+                    display: { xs: "none", md: "flex" },
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
                 >
                   {pages.map((page, i) => (
                     <Link
-                      href={page.path}
+                      to={page.path}
                       style={{ textDecoration: "none" }}
                       key={i}
                     >
@@ -153,14 +149,31 @@ const index = () => {
                         key={page.label}
                         variant="contained"
                         onClick={handleCloseNavMenu}
-                        sx={{ my: 2, color: "white", display: "block" }}
-                        className="navOther"
+                        sx={[
+                          {
+                            my: 2,
+                            display: "block",
+                            backgroundColor: "rgba(0, 0, 0, 0)",
+                            border: "none",
+                            boxShadow: "none",
+                            color: "white",
+                            "&:hover": {
+                              backgroundColor: "white",
+                              border: "none",
+                              boxShadow: "none",
+                              color: "black",
+                            },
+                          },
+                        ]}
                       >
                         <Typography
                           variant="body1"
-                          className={` ${
-                            page.path === router.pathname ? "selectedNav" : ""
-                          }`}
+                          sx={[
+                            {},
+                            page.path === pathname && {
+                              borderBottom: "1px solid white",
+                            },
+                          ]}
                         >
                           {page.label}
                         </Typography>
@@ -181,25 +194,22 @@ const index = () => {
         ) : (
           <AppBar
             position="fixed"
-            className={`${scroll ? "" : ""}`}
-            style={{ backgroundColor: "white", color: "black" }}
-            onScroll={() => setScroll(true)}
+            sx={{ backgroundColor: "white", color: "black" }}
           >
             <Container maxWidth="xl">
               <Toolbar disableGutters>
-                <Link href="/" style={{ textDecoration: "none" }}>
+                <Link to="/" style={{ textDecoration: "none" }}>
                   <Typography
                     variant="h5"
                     noWrap
                     component="a"
-                    href="/"
                     sx={{
                       mr: 2,
                       display: { xs: "none", md: "flex" },
                       fontFamily: "monospace",
                       fontWeight: 700,
                       letterSpacing: ".3rem",
-                      color: "inherit",
+                      color: "black",
                       textDecoration: "none",
                     }}
                   >
@@ -239,8 +249,8 @@ const index = () => {
                     {pages.map((page, i) => (
                       <MenuItem key={i} onClick={handleCloseNavMenu}>
                         <Link
-                          href={page.path}
-                          style={{ textDecoration: "none" }}
+                          to={page.path}
+                          style={{ textDecoration: "none", color: "black" }}
                         >
                           <Typography textAlign="center">
                             {page.label}
@@ -250,18 +260,16 @@ const index = () => {
                     ))}
                   </Menu>
                 </Box>
-                <Link href="/" style={{ textDecoration: "none" }}>
+                <Link to="/" style={{ textDecoration: "none" }}>
                   <Typography
                     variant="h5"
                     noWrap
-                    style={{}}
                     component="a"
-                    href=""
                     sx={{
                       display: { xs: "flex", md: "none" },
                       flexGrow: 1,
                       fontWeight: 700,
-                      color: "inherit",
+                      color: "black",
                       textDecoration: "none",
                     }}
                   >
@@ -269,12 +277,16 @@ const index = () => {
                   </Typography>
                 </Link>
                 <Box
-                  sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-                  style={{ justifyContent: "center", alignItems: "center" }}
+                  sx={{
+                    flexGrow: 1,
+                    display: { xs: "none", md: "flex" },
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
                 >
                   {pages.map((page, i) => (
                     <Link
-                      href={page.path}
+                      to={page.path}
                       style={{ textDecoration: "none" }}
                       key={i}
                     >
@@ -282,14 +294,31 @@ const index = () => {
                         key={page.label}
                         variant="contained"
                         onClick={handleCloseNavMenu}
-                        sx={{ my: 2, color: "white", display: "block" }}
-                        className="nav"
+                        sx={[
+                          {
+                            my: 2,
+                            color: "black",
+                            display: "block",
+                            backgroundColor: "white",
+                            border: "none",
+                            boxShadow: "none",
+                            "&:hover": {
+                              backgroundColor: "black",
+                              border: "none",
+                              boxShadow: "none",
+                              color: "white",
+                            },
+                          },
+                        ]}
                       >
                         <Typography
                           variant="body1"
-                          className={` ${
-                            page.path === router.pathname ? "selectedNav" : ""
-                          }`}
+                          sx={[
+                            {},
+                            page.path === pathname && {
+                              borderBottom: "1px solid black",
+                            },
+                          ]}
                         >
                           {page.label}
                         </Typography>
@@ -309,7 +338,7 @@ const index = () => {
           </AppBar>
         )}
         <Box
-          style={{
+          sx={{
             position: "relative",
             textAlign: "center",
             color: "white",
@@ -319,7 +348,7 @@ const index = () => {
         >
           <img src="/2.png" alt="First slide" height="100%" width="100%" />
           <Box
-            style={{
+            sx={{
               background: "rgba(0, 0, 0, .6)",
               width: "100%",
               height: "100%",
@@ -330,7 +359,7 @@ const index = () => {
             }}
           >
             <Container
-              style={{
+              sx={{
                 position: "absolute",
                 top: "35%",
                 left: "50%",
@@ -339,7 +368,7 @@ const index = () => {
             >
               <Typography
                 variant="h3"
-                style={{ marginBottom: "2rem", fontWeight: "bold" }}
+                sx={{ marginBottom: "2rem", fontWeight: "bold" }}
               >
                 Charlie Glass Inc.
               </Typography>
@@ -348,10 +377,10 @@ const index = () => {
                 alignItems="center"
                 direction={{ xs: "column", sm: "row" }}
               >
-                <Typography variant="body1" style={{ fontWeight: "bold" }}>
+                <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                   326 50th st. brooklyn, NY 11220
                 </Typography>
-                <Typography variant="body1" style={{ fontWeight: "bold" }}>
+                <Typography variant="body1" sx={{ fontWeight: "bold" }}>
                   INFO@CHARLIEGLASS.COM
                 </Typography>
               </Stack>
@@ -362,7 +391,7 @@ const index = () => {
           justifyContent="space-evenly"
           alignItems="center"
           direction={{ xs: "column", sm: "row" }}
-          style={{ margin: "2rem 0" }}
+          sx={{ margin: "2rem 0" }}
         >
           {[
             {
@@ -380,22 +409,21 @@ const index = () => {
           ].map((content, i) => {
             return (
               <Card
-                sx={{ maxWidth: 345 }}
                 key={i}
-                style={{ border: "none", boxShadow: "none" }}
+                sx={{ border: "none", boxShadow: "none", maxWidth: 345 }}
               >
                 <CardContent>
                   <Typography
                     variant="h5"
                     textAlign="center"
-                    style={{
+                    sx={{
                       color: "blue",
                       fontWeight: "bold",
                     }}
                   >{`${content.title}`}</Typography>
                   <Typography
                     variant="body1"
-                    style={{ textIndent: "1rem" }}
+                    sx={{ textIndent: "1rem" }}
                   >{`${content.p}`}</Typography>
                 </CardContent>
               </Card>
@@ -407,4 +435,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Home;
