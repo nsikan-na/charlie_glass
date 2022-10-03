@@ -85,11 +85,11 @@ export default function Contact() {
             <Typography
               variant="body1"
               sx={{
-                margin: "1rem",
+                margin: "1rem 0",
               }}
               textAlign="left"
             >
-              What service can out specialists provide you with today?
+              What service can our specialists provide you with today?
             </Typography>
             <Stack direction={{ xs: "column", sm: "row" }}>
               {[
