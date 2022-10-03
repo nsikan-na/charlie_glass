@@ -9,8 +9,10 @@ import {
   TextField,
   Stack,
   useMediaQuery,
+  FormControlLabel,
+  Checkbox,
+  Button,
 } from "@mui/material";
-import ContactForm from "../components/contactForm";
 import "../index.css";
 export default function Contact() {
   const onFinish = (values: any) => {
@@ -43,7 +45,7 @@ export default function Contact() {
         >
           <Container
             sx={{
-              backgroundColor: "blue",
+              backgroundColor: "#151E3E",
               color: "white",
               padding: "2%",
               margin: "1rem",
@@ -56,7 +58,7 @@ export default function Contact() {
               {[
                 { title: "Located at ", p: "326 50 st, Brooklyn, NY 11220" },
                 { title: "Call us or email us at", p: "917-848-8128" },
-                { title: "Open Monday-Friday", p: " 8am - 8pm" },
+                { title: "Open Monday-Friday", p: " 8am - 5pm" },
               ].map((content) => {
                 return (
                   <ListItem key={content.title}>
@@ -70,7 +72,54 @@ export default function Contact() {
               })}
             </List>
           </Container>
-          <ContactForm />
+          <Container sx={{ margin: "1rem" }}>
+            <TextField label="Name" sx={{ margin: ".5rem" }} size="small" />
+            <Stack direction={{ xs: "column", sm: "row" }}>
+              <TextField label="Email" sx={{ margin: ".5rem" }} size="small" />
+              <TextField
+                label="Phone Number"
+                sx={{ margin: ".5rem" }}
+                size="small"
+              />
+            </Stack>
+            <Typography
+              variant="body1"
+              sx={{
+                margin: "1rem",
+              }}
+              textAlign="left"
+            >
+              What service can out specialists provide you with today?
+            </Typography>
+            <Stack direction={{ xs: "column", sm: "row" }}>
+              {[
+                { label: "Shower Doors", name: "showerDoors" },
+                { label: "Shelves", name: "shelves" },
+                { label: "Glass Partition", name: "glassPartition" },
+                { label: "Store Fronts", name: "storeFronts" },
+              ].map((content, i) => (
+                <FormControlLabel
+                  key={i}
+                  label={content.label}
+                  control={<Checkbox />}
+                />
+              ))}
+            </Stack>
+            <TextField
+              label="Messages"
+              sx={{ width: "80%" }}
+              minRows="4"
+              multiline={true}
+              size="small"
+            />
+            <br />
+            <Button
+              variant="contained"
+              sx={{ margin: "1rem auto", backgroundColor: "#151E3E" }}
+            >
+              Contact
+            </Button>
+          </Container>
         </Stack>
       </Box>
     </>

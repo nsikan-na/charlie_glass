@@ -23,7 +23,6 @@ import {
 import "../index.css";
 import CopyrightIcon from "@mui/icons-material/Copyright";
 import { Link, Outlet } from "react-router-dom";
-import ContactForm from "../components/contactForm";
 
 function Layout() {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -203,12 +202,12 @@ function Layout() {
             margin: "1rem 0 0 0",
           }}
         >
-          <img src="/1.png" alt="First slide" height="400px" width="100%" />
+          <img src="/1.png" alt="First slide" height="800px" width="100%" />
           <Box
             sx={{
               background: "rgba(0, 0, 0, .6)",
               width: "100%",
-              height: "98%",
+              height: "99%",
               position: "absolute",
               top: "0%",
               left: "50%",
@@ -218,14 +217,16 @@ function Layout() {
             <Container
               sx={{
                 position: "absolute",
-                top: "1%",
+                top: "20%",
                 left: "50%",
                 transform: "translate(-50%,30%)",
               }}
             >
-              <Typography variant="h5">GET A FREE ESTIMATE TODAY</Typography>
+              <Typography variant="h4" sx={{ margin: "1rem" }}>
+                GET A FREE ESTIMATE TODAY
+              </Typography>
 
-              <Typography variant="body2" sx={{ width: "70%", margin: "auto" }}>
+              <Typography variant="body1" sx={{ width: "70%", margin: "auto" }}>
                 The all-in-one shop for all of your glass work desires is
                 Charlie Glass. Together, we will design a layout that expressed
                 your business, lifestyle, and creativity. We are ready to help
@@ -236,7 +237,7 @@ function Layout() {
                   variant="contained"
                   sx={{
                     marginTop: "1rem",
-                    backgroundColor: "blue",
+                    backgroundColor: "#151E3E",
                   }}
                 >
                   Contact Us
@@ -251,7 +252,7 @@ function Layout() {
 
       <Box
         sx={{
-          backgroundColor: "blue",
+          backgroundColor: "#151E3E",
           color: "white",
           paddingBottom: "1rem",
         }}
@@ -264,7 +265,7 @@ function Layout() {
           {[
             { title: "Located at ", p: "326 50 st, Brooklyn, NY 11220" },
             { title: "Call us or email us at", p: "917-848-8128" },
-            { title: "Open Monday-Friday", p: " 8am - 8pm" },
+            { title: "Open Monday-Friday", p: " 8am - 5pm" },
           ].map((content) => {
             return (
               <List key={content.title}>
@@ -287,7 +288,7 @@ function Layout() {
           <Chip
             icon={<CopyrightIcon style={{ color: "white" }} />}
             label="Charlie Glass Inc."
-            sx={{ color: "white", backgroundColor: "blue" }}
+            sx={{ color: "white", backgroundColor: "#151E3E" }}
           />
         </Stack>
       </Box>

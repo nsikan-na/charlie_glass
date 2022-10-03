@@ -84,10 +84,10 @@ export default function Gallery() {
                   {},
                   filter !== item && {
                     backgroundColor: "white",
-                    color: "blue",
-                    border: "1px solid blue",
+                    color: "#151E3E",
+                    border: "1px solid #151E3E",
                   },
-                  filter === item && { backgroundColor: "blue" },
+                  filter === item && { backgroundColor: "#151E3E" },
                 ]}
                 variant="contained"
                 onClick={() => setFilter(item)}

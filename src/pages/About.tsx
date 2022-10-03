@@ -21,7 +21,7 @@ const About = () => {
         {[
           { title: "Located at ", p: "326 50 st, Brooklyn, NY 11220" },
           { title: "Call us or email us at", p: "917-848-8128" },
-          { title: "Open Monday-Friday", p: " 8am - 8pm" },
+          { title: "Open Monday-Friday", p: " 8am - 5pm" },
         ].map((content) => {
           return (
             <ListItem key={content.title}>

@@ -106,7 +106,10 @@ const Home = () => {
                   >
                     {pages.map((page, i) => (
                       <MenuItem key={i} onClick={handleCloseNavMenu}>
-                        <Link to={page.path} style={{ textDecoration: "none",color:'black' }}>
+                        <Link
+                          to={page.path}
+                          style={{ textDecoration: "none", color: "black" }}
+                        >
                           <Typography textAlign="center">
                             {page.label}
                           </Typography>
@@ -387,49 +390,57 @@ const Home = () => {
             </Container>
           </Box>
         </Box>
-        <Stack
-          justifyContent="space-evenly"
-          alignItems="center"
-          direction={{ xs: "column", sm: "row" }}
-          sx={{ margin: "2rem 0" }}
-        >
-          {[
-            {
-              title: "Glass Partitions",
-              p: "With one of our most popular services, this brings out all of the different ways people want their offices to be designed.",
-            },
-            {
-              title: "Storefronts",
-              p: " When it comes to doing storefronts you want the most dedicated professional doing the job . When it comes to how you want your entrance to.",
-            },
-            {
-              title: "Mirrors",
-              p: " Our team dedicates to putting mirrors in bathrooms, gyms, indexs anywhere that a customer wants a mirror to be placed.",
-            },
-          ].map((content, i) => {
-            return (
-              <Card
-                key={i}
-                sx={{ border: "none", boxShadow: "none", maxWidth: 345 }}
-              >
-                <CardContent>
-                  <Typography
-                    variant="h5"
-                    textAlign="center"
-                    sx={{
-                      color: "blue",
-                      fontWeight: "bold",
-                    }}
-                  >{`${content.title}`}</Typography>
-                  <Typography
-                    variant="body1"
-                    sx={{ textIndent: "1rem" }}
-                  >{`${content.p}`}</Typography>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </Stack>
+        <Box sx={{ margin: "5rem 0" }}>
+          <Typography
+            variant="h3"
+            sx={{ fontWeight: "bold", color: "#151E3E", margin: "5rem 0" }}
+            textAlign="center"
+          >
+            Services
+          </Typography>
+          <Stack
+            justifyContent="space-evenly"
+            alignItems="center"
+            direction={{ xs: "column", sm: "row" }}
+          >
+            {[
+              {
+                title: "Glass Partitions",
+                p: "With one of our most popular services, this brings out all of the different ways people want their offices to be designed.",
+              },
+              {
+                title: "Storefronts",
+                p: " When it comes to doing storefronts you want the most dedicated professional doing the job . When it comes to how you want your entrance to.",
+              },
+              {
+                title: "Mirrors",
+                p: " Our team dedicates to putting mirrors in bathrooms, gyms, indexs anywhere that a customer wants a mirror to be placed.",
+              },
+            ].map((content, i) => {
+              return (
+                <Card
+                  key={i}
+                  sx={{ border: "none", boxShadow: "none", maxWidth: 345 }}
+                >
+                  <CardContent>
+                    <Typography
+                      variant="h5"
+                      textAlign="center"
+                      sx={{
+                        color: "#151E3E",
+                        fontWeight: "bold",
+                      }}
+                    >{`${content.title}`}</Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{ textIndent: "1rem" }}
+                    >{`${content.p}`}</Typography>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </Stack>
+        </Box>
       </Box>
     </>
   );

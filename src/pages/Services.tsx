@@ -79,7 +79,7 @@ export default function Services() {
                   <CardContent
                     key={content.title}
                     sx={{
-                      backgroundColor: "blue",
+                      backgroundColor: "#151E3E",
                       color: "white",
                     }}
                   >
