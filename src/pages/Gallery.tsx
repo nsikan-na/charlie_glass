@@ -2,16 +2,9 @@ import React, { useState } from "react";
 import {
   Typography,
   Stack,
-  Card,
-  CardContent,
-  CardMedia,
   ButtonGroup,
   Button,
-  ImageList,
-  ImageListItem,
   Grid,
-  styled,
-  Paper,
   useMediaQuery,
   Box,
 } from "@mui/material";
@@ -58,7 +51,7 @@ export default function Gallery() {
           },
         ]}
       >
-        <Typography variant="h3" align="center" sx={{ margin: "1rem" }}>
+        <Typography variant="h3" align="center" sx={{ margin: "2rem" }} >
           Gallery
         </Typography>
         <Stack
@@ -97,7 +90,7 @@ export default function Gallery() {
             ))}
           </ButtonGroup>
         </Stack>
-        <Typography variant="h5" textAlign="center" sx={{ margin: "1rem" }}>
+        <Typography variant="h4" textAlign="center" sx={{ margin: "1rem" }}>
           {filter}
         </Typography>
         <Grid

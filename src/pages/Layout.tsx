@@ -1,8 +1,7 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useLocation } from "react-router-dom";
-
 import {
   MenuItem,
   Button,
@@ -16,7 +15,6 @@ import {
   ListItem,
   ListItemText,
   Stack,
-  Card,
   Chip,
   CssBaseline,
 } from "@mui/material";
@@ -29,12 +27,14 @@ function Layout() {
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
   };
-  const Context = createContext({});
-  const { pathname } = useLocation();
 
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   const pages = [
     { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
+    // { path: "/about", label: "About" },
     { path: "/services", label: "Services" },
     { path: "/gallery", label: "Gallery" },
     { path: "/contact", label: "Contact" },
@@ -44,7 +44,7 @@ function Layout() {
   };
 
   return (
-    <Context.Provider value={{}}>
+    <>
       <CssBaseline />
       {pathname !== "/" ? (
         <AppBar
@@ -255,6 +255,7 @@ function Layout() {
           backgroundColor: "#151E3E",
           color: "white",
           paddingBottom: "1rem",
+          marginTop: "-1rem",
         }}
       >
         <Stack
@@ -264,7 +265,8 @@ function Layout() {
         >
           {[
             { title: "Located at ", p: "326 50 st, Brooklyn, NY 11220" },
-            { title: "Call us or email us at", p: "917-848-8128" },
+            { title: "Call Us", p: "917-848-8128" },
+            { title: "Email @", p: "info@charlieglass.com" },
             { title: "Open Monday-Friday", p: " 8am - 5pm" },
           ].map((content) => {
             return (
@@ -292,7 +294,7 @@ function Layout() {
           />
         </Stack>
       </Box>
-    </Context.Provider>
+    </>
   );
 }
 export default Layout;

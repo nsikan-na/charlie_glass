@@ -29,7 +29,6 @@ const Home = () => {
   };
   const pages = [
     { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
     { path: "/services", label: "Services" },
     { path: "/gallery", label: "Gallery" },
     { path: "/contact", label: "Contact" },
@@ -393,7 +392,11 @@ const Home = () => {
         <Box sx={{ margin: "5rem 0" }}>
           <Typography
             variant="h3"
-            sx={{ fontWeight: "bold", color: "#151E3E", margin: "5rem 0" }}
+            sx={{
+              fontWeight: "bold",
+              color: "#151E3E",
+              margin: "5rem 0 1rem 0",
+            }}
             textAlign="center"
           >
             Services
@@ -427,7 +430,7 @@ const Home = () => {
                       variant="h5"
                       textAlign="center"
                       sx={{
-                        color: "#151E3E",
+                        color: "#5A5A5A",
                         fontWeight: "bold",
                       }}
                     >{`${content.title}`}</Typography>

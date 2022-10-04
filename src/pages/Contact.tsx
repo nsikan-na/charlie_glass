@@ -3,9 +3,9 @@ import {
   Box,
   Typography,
   Container,
-  List,
-  ListItem,
-  ListItemText,
+  // List,
+  // ListItem,
+  // ListItemText,
   TextField,
   Stack,
   useMediaQuery,
@@ -15,13 +15,13 @@ import {
 } from "@mui/material";
 import "../index.css";
 export default function Contact() {
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
-  };
+  // const onFinish = (values: any) => {
+  //   console.log("Success:", values);
+  // };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-  };
+  // const onFinishFailed = (errorInfo: any) => {
+  //   console.log("Failed:", errorInfo);
+  // };
   const matches = useMediaQuery("(max-width:1400px)");
 
   return (
@@ -31,33 +31,43 @@ export default function Contact() {
           {},
           !matches && {
             width: "70%",
-            margin: "auto",
+            margin: "0 auto 3rem",
           },
         ]}
       >
-        <Typography variant="h3" textAlign="center" sx={{ margin: "1rem" }}>
+        <Typography
+          variant="h3"
+          textAlign="center"
+          sx={{ margin: "2rem" }}
+        >
           Contact Us
         </Typography>
         <Stack
           justifyContent="space-evenly"
           alignItems="center"
           direction={{ xs: "column", sm: "row" }}
+          sx={{ margin: "1rem 0 4rem" }}
         >
           <Container
             sx={{
               backgroundColor: "#151E3E",
               color: "white",
-              padding: "2%",
+              padding: "1rem 0 4rem",
               margin: "1rem",
             }}
           >
-            <Typography variant="h5" textAlign="center" sx={{}}>
-              Charlie Glass Inc.
+            <Typography
+              variant="h4"
+              textAlign="center"
+              sx={{ margin: "2rem 0 1rem" }}
+            >
+              About Us
             </Typography>
-            <List sx={{ margin: "0 auto" }}>
+            {/* <List sx={{ margin: "0 auto" }}>
               {[
                 { title: "Located at ", p: "326 50 st, Brooklyn, NY 11220" },
-                { title: "Call us or email us at", p: "917-848-8128" },
+                { title: "Call Us", p: "917-848-8128" },
+                { title: "Email @", p: "info@charlieglass.com" },
                 { title: "Open Monday-Friday", p: " 8am - 5pm" },
               ].map((content) => {
                 return (
@@ -70,7 +80,17 @@ export default function Contact() {
                   </ListItem>
                 );
               })}
-            </List>
+            </List> */}
+            <Typography
+              variant="body1"
+              sx={{ width: "70%", margin: "auto", textIndent: "1rem" }}
+            >
+              Glass company that originated in 2003. We specialize in everything
+              that has to do in glass; from a shower door to glass partitions.
+              Anything the customer desires our specialists are always there
+              ensure that the customer is 100% satisfied. Please contact us for
+              all your glass needs.
+            </Typography>
           </Container>
           <Container sx={{ margin: "1rem" }}>
             <TextField label="Name" sx={{ margin: ".5rem" }} size="small" />

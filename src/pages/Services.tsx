@@ -3,7 +3,6 @@ import {
   Card,
   Typography,
   CardContent,
-  Stack,
   CardMedia,
   Grid,
   Box,
@@ -23,7 +22,12 @@ export default function Services() {
           },
         ]}
       >
-        <Typography variant="h3" textAlign="center" sx={{ margin: "1rem" }}>
+        <Typography
+          variant="h3"
+          textAlign="center"
+          sx={{ margin: "2rem" }}
+          id="Services"
+        >
           Services
         </Typography>
         <Typography
@@ -85,8 +89,11 @@ export default function Services() {
                   >
                     <Typography
                       variant="h5"
-                      sx={{ textAlign: "center", fontWeight: "bold" }}
-                    >{`${content.title}:`}</Typography>
+                      sx={{
+                        textAlign: "center",
+                        fontWeight: "bold",
+                      }}
+                    >{`${content.title}`}</Typography>
                     <Typography
                       variant="body1"
                       sx={{ margin: "auto", width: "80%" }}
