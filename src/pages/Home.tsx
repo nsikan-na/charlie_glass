@@ -139,6 +139,7 @@ const Home = () => {
                     display: { xs: "none", md: "flex" },
                     justifyContent: "center",
                     alignItems: "center",
+                    marginLeft: "5rem",
                   }}
                 >
                   {pages.map((page, i) => (
@@ -284,6 +285,7 @@ const Home = () => {
                     display: { xs: "none", md: "flex" },
                     justifyContent: "center",
                     alignItems: "center",
+                    marginLeft: "5rem",
                   }}
                 >
                   {pages.map((page, i) => (

@@ -135,6 +135,7 @@ function Layout() {
                   display: { xs: "none", md: "flex" },
                   justifyContent: "center",
                   alignItems: "center",
+                  marginLeft: "5rem",
                 }}
               >
                 {pages.map((page, i) => (
