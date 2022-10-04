@@ -52,17 +52,11 @@ export default function Contact() {
             sx={{
               backgroundColor: "#151E3E",
               color: "white",
-              padding: "1rem 0 4rem",
+              padding: "4rem 0 4rem",
               margin: "1rem",
             }}
           >
-            <Typography
-              variant="h4"
-              textAlign="center"
-              sx={{ margin: "2rem 0 1rem" }}
-            >
-              About Us
-            </Typography>
+  
             {/* <List sx={{ margin: "0 auto" }}>
               {[
                 { title: "Located at ", p: "326 50 st, Brooklyn, NY 11220" },
