@@ -16,7 +16,6 @@ import {
   ListItemText,
   Stack,
   Chip,
-  CssBaseline,
 } from "@mui/material";
 import "../index.css";
 import CopyrightIcon from "@mui/icons-material/Copyright";

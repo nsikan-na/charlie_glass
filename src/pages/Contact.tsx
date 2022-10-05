@@ -12,6 +12,7 @@ import {
   FormGroup,
   Alert,
   Snackbar,
+  CircularProgress,
 } from "@mui/material";
 import "../index.css";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
@@ -21,6 +22,7 @@ export default function Contact() {
   const [email, setEmail] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [message, setMessage] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [services, setServices] = useState<string[]>([]);
   const matches = useMediaQuery("(max-width:1400px)");
   const [open, setOpen] = useState(false);
@@ -36,6 +38,7 @@ export default function Contact() {
     setOpen(true);
   };
   const handleFormSubmit = async () => {
+    setIsLoading(true);
     const res = await fetch("/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -45,6 +48,7 @@ export default function Contact() {
       setData(response);
       handleClick();
     });
+    setIsLoading(false);
   };
 
   return (
@@ -191,21 +195,37 @@ export default function Contact() {
               value={message}
             />
             <br />
-            <Button
-              variant="contained"
-              sx={[
-                {
-                  margin: "1rem auto",
-                  backgroundColor: "#151E3E",
-                  "&:hover": {
+            {!isLoading ? (
+              <Button
+                variant="contained"
+                sx={[
+                  {
+                    margin: "1rem auto",
+                    backgroundColor: "#151E3E",
+                    "&:hover": {
+                      backgroundColor: "#151E3E",
+                    },
+                  },
+                ]}
+                onClick={handleFormSubmit}
+              >
+                Email Us
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                sx={[
+                  {
+                    margin: "1rem auto",
                     backgroundColor: "#151E3E",
                   },
-                },
-              ]}
-              onClick={handleFormSubmit}
-            >
-              Contact
-            </Button>
+                ]}
+                disabled
+              >
+                <CircularProgress size={20} sx={{ marginRight: "1rem" }} />
+                Email Us
+              </Button>
+            )}
           </Container>
         </Stack>
       </Box>
