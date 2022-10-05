@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -9,17 +9,43 @@ import {
   FormControlLabel,
   Checkbox,
   Button,
+  FormGroup,
+  Alert,
+  Snackbar,
 } from "@mui/material";
 import "../index.css";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 export default function Contact() {
-  // const onFinish = (values: any) => {
-  //   console.log("Success:", values);
-  // };
-
-  // const onFinishFailed = (errorInfo: any) => {
-  //   console.log("Failed:", errorInfo);
-  // };
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [services, setServices] = useState<string[]>([]);
   const matches = useMediaQuery("(max-width:1400px)");
+  const [open, setOpen] = useState(false);
+  const [data, setData] = useState<any>({});
+  const handleClose: any = (_: any, reason: any) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+  const handleClick = () => {
+    setOpen(true);
+  };
+  const handleFormSubmit = async () => {
+    const res = await fetch("/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, phoneNumber, message, services }),
+    });
+    res.json().then((response) => {
+      setData(response);
+      handleClick();
+    });
+  };
 
   return (
     <>
@@ -32,6 +58,39 @@ export default function Contact() {
           },
         ]}
       >
+        <Snackbar
+          open={open}
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+          autoHideDuration={6000}
+          onClose={handleClose}
+        >
+          <Alert
+            iconMapping={{
+              success: (
+                <CheckCircleOutlineIcon
+                  fontSize="inherit"
+                  sx={{ color: "white" }}
+                />
+              ),
+              error: (
+                <ErrorOutlineOutlinedIcon
+                  fontSize="inherit"
+                  sx={{ color: "white" }}
+                />
+              ),
+            }}
+            onClose={handleClose}
+            severity={data.success ? "success" : "error"}
+            sx={[
+              { width: "100%", marginTop: "4rem", color: "white" },
+              data.success && { backgroundColor: "green" },
+              !data.success && { backgroundColor: "red" },
+            ]}
+          >
+            {data.success ? "Email Sent" : data.message}
+          </Alert>
+        </Snackbar>
+        ;
         <Typography variant="h3" textAlign="center" sx={{ margin: "2rem" }}>
           Contact Us
         </Typography>
@@ -61,13 +120,27 @@ export default function Contact() {
             </Typography>
           </Container>
           <Container sx={{ margin: "1rem" }}>
-            <TextField label="Name" sx={{ margin: ".5rem" }} size="small" />
+            <TextField
+              label="Name"
+              sx={{ margin: ".5rem" }}
+              size="small"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
             <Stack direction={{ xs: "column", sm: "row" }}>
-              <TextField label="Email" sx={{ margin: ".5rem" }} size="small" />
+              <TextField
+                label="Email"
+                sx={{ margin: ".5rem" }}
+                size="small"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
               <TextField
                 label="Phone Number"
                 sx={{ margin: ".5rem" }}
                 size="small"
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                value={phoneNumber}
               />
             </Stack>
             <Typography
@@ -79,26 +152,43 @@ export default function Contact() {
             >
               What service can our specialists provide you with today?
             </Typography>
-            <Stack direction={{ xs: "column", sm: "row" }}>
-              {[
-                { label: "Shower Doors", name: "showerDoors" },
-                { label: "Shelves", name: "shelves" },
-                { label: "Glass Partition", name: "glassPartition" },
-                { label: "Store Fronts", name: "storeFronts" },
-              ].map((content, i) => (
-                <FormControlLabel
-                  key={i}
-                  label={content.label}
-                  control={<Checkbox />}
-                />
-              ))}
-            </Stack>
+            <FormGroup>
+              <Stack direction={{ xs: "column", sm: "row" }}>
+                {[
+                  { label: "Shower Doors", name: "showerDoors" },
+                  { label: "Shelves", name: "shelves" },
+                  { label: "Glass Partition", name: "glassPartition" },
+                  { label: "Store Fronts", name: "storeFronts" },
+                ].map((content, i) => (
+                  <FormControlLabel
+                    key={i}
+                    label={content.label}
+                    control={<Checkbox />}
+                    value={content.name}
+                    onChange={(e) => {
+                      //@ts-ignore
+                      e.target.checked
+                        ? //@ts-ignore
+                          services.push(e.target.value)
+                        : setServices(
+                            services.filter(
+                              //@ts-ignore
+                              (service) => service !== e.target.value
+                            )
+                          );
+                    }}
+                  />
+                ))}
+              </Stack>
+            </FormGroup>
             <TextField
               label="Messages"
               sx={{ width: "80%" }}
               minRows="4"
               multiline={true}
               size="small"
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
             />
             <br />
             <Button
@@ -112,6 +202,7 @@ export default function Contact() {
                   },
                 },
               ]}
+              onClick={handleFormSubmit}
             >
               Contact
             </Button>

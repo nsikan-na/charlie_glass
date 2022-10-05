@@ -8,6 +8,7 @@ import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import "./index.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
 
 const theme = createTheme({
   typography: {
@@ -40,6 +41,7 @@ export default function App() {
   const Context = createContext({});
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Context.Provider value={{}}>
         <BrowserRouter>
           <Routes>

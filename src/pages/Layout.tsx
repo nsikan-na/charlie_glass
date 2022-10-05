@@ -45,7 +45,6 @@ function Layout() {
 
   return (
     <>
-      <CssBaseline />
       {pathname !== "/" ? (
         <AppBar
           position="sticky"

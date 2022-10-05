@@ -2,13 +2,17 @@
   "name": "charlie_glass",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.7",
+    "@sendgrid/mail": "^7.7.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.20",
     "react": "latest",
     "react-dom": "latest",
     "react-scripts": "^5.0.1"
@@ -17,7 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "nodemon server.js"
   },
   "eslintConfig": {
     "extends": [
