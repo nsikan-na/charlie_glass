@@ -8,7 +8,6 @@ import {
   useMediaQuery,
   Box,
 } from "@mui/material";
-import "../index.css";
 export default function Gallery() {
   const [filter, setFilter] = useState<string>("All");
   const itemData: { title: string; img: string }[] = [];

@@ -1,13 +1,11 @@
-const express = require("express");
+import type { NextApiRequest, NextApiResponse } from "next";
 const sgMail = require("@sendgrid/mail");
 // sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
 
-const PORT = process.env.PORT || 8080;
-
-const app = express();
-app.use(express.json());
-
-app.post("/contact", async (req, res) => {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === "POST") {
     try {
       const data = req.body;
@@ -36,7 +34,7 @@ app.post("/contact", async (req, res) => {
           <h1>From ${name},</h1>
           <h3>${email}</h3>
           <h3>${phoneNumber}</h3>
-          ${services.map((service) => `<h4>${service}</h4>`)}
+          <h4>Shower Doors</h4>
             <h4>${message}</h4>
           }`,
         };
@@ -81,7 +79,7 @@ app.post("/contact", async (req, res) => {
           <h1>From ${name},</h1>
           <h3>${email}</h3>
           <h3>${phoneNumber}</h3>
-          <h4>StoreFronts</h4>
+          <h4>Store Fronts</h4>
           <h5>${message}</h5>
           }`,
         };
@@ -92,6 +90,4 @@ app.post("/contact", async (req, res) => {
       console.log(err);
     }
   }
-});
-
-app.listen(PORT);
+}

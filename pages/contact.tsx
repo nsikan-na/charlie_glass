@@ -14,7 +14,6 @@ import {
   Snackbar,
   CircularProgress,
 } from "@mui/material";
-import "../index.css";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 export default function Contact() {
@@ -39,7 +38,7 @@ export default function Contact() {
   };
   const handleFormSubmit = async () => {
     setIsLoading(true);
-    const res = await fetch("/contact", {
+    const res = await fetch("api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, phoneNumber, message, services }),

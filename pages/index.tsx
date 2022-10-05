@@ -13,17 +13,17 @@ import {
   CardContent,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useLocation } from "react-router-dom";
+import { useRouter } from "next/router";
 
 const Home = () => {
   const [offset, setOffset] = useState(0);
+  const { pathname } = useRouter();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
   };
-  const { pathname } = useLocation();
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -57,7 +57,7 @@ const Home = () => {
           >
             <Container maxWidth="xl">
               <Toolbar disableGutters>
-                <Link to="/" style={{ textDecoration: "none" }}>
+                <Link href="/" style={{ textDecoration: "none" }}>
                   <Typography
                     variant="h5"
                     noWrap
@@ -108,7 +108,7 @@ const Home = () => {
                     {pages.map((page, i) => (
                       <MenuItem key={i} onClick={handleCloseNavMenu}>
                         <Link
-                          to={page.path}
+                          href={page.path}
                           style={{ textDecoration: "none", color: "#151E3E" }}
                         >
                           <Typography textAlign="center">
@@ -119,22 +119,24 @@ const Home = () => {
                     ))}
                   </Menu>
                 </Box>
-                <Link to="/" style={{ textDecoration: "none" }}>
-                  <Typography
-                    variant="h5"
-                    noWrap
-                    component="a"
-                    sx={{
-                      display: { xs: "flex", md: "none" },
-                      flexGrow: 1,
-                      fontWeight: 700,
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Charlie Glass Inc.
-                  </Typography>
-                </Link>
+                <Stack justifyContent="right">
+                  <Link href="/" style={{ textDecoration: "none" }}>
+                    <Typography
+                      variant="h5"
+                      noWrap
+                      component="a"
+                      sx={{
+                        display: { xs: "flex", md: "none" },
+                        flexGrow: 1,
+                        fontWeight: 700,
+                        color: "white",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Charlie Glass Inc.
+                    </Typography>
+                  </Link>
+                </Stack>
                 <Box
                   sx={{
                     flexGrow: 1,
@@ -146,7 +148,7 @@ const Home = () => {
                 >
                   {pages.map((page, i) => (
                     <Link
-                      to={page.path}
+                      href={page.path}
                       style={{ textDecoration: "none" }}
                       key={i}
                     >
@@ -203,7 +205,7 @@ const Home = () => {
           >
             <Container maxWidth="xl">
               <Toolbar disableGutters>
-                <Link to="/" style={{ textDecoration: "none" }}>
+                <Link href="/" style={{ textDecoration: "none" }}>
                   <Typography
                     variant="h5"
                     noWrap
@@ -254,7 +256,7 @@ const Home = () => {
                     {pages.map((page, i) => (
                       <MenuItem key={i} onClick={handleCloseNavMenu}>
                         <Link
-                          to={page.path}
+                          href={page.path}
                           style={{ textDecoration: "none", color: "#151E3E" }}
                         >
                           <Typography textAlign="center">
@@ -265,22 +267,24 @@ const Home = () => {
                     ))}
                   </Menu>
                 </Box>
-                <Link to="/" style={{ textDecoration: "none" }}>
-                  <Typography
-                    variant="h5"
-                    noWrap
-                    component="a"
-                    sx={{
-                      display: { xs: "flex", md: "none" },
-                      flexGrow: 1,
-                      fontWeight: 700,
-                      color: "#151E3E",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Charlie Glass Inc.
-                  </Typography>
-                </Link>
+                <Stack justifyContent="right">
+                  <Link href="/" style={{ textDecoration: "none" }}>
+                    <Typography
+                      variant="h5"
+                      noWrap
+                      component="a"
+                      sx={{
+                        display: { xs: "flex", md: "none" },
+                        flexGrow: 1,
+                        fontWeight: 700,
+                        color: "#151E3E",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Charlie Glass Inc.
+                    </Typography>
+                  </Link>
+                </Stack>
                 <Box
                   sx={{
                     flexGrow: 1,
@@ -292,7 +296,7 @@ const Home = () => {
                 >
                   {pages.map((page, i) => (
                     <Link
-                      to={page.path}
+                      href={page.path}
                       style={{ textDecoration: "none" }}
                       key={i}
                     >
