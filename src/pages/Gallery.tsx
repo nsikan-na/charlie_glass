@@ -51,7 +51,11 @@ export default function Gallery() {
           },
         ]}
       >
-        <Typography variant="h3" align="center" sx={{ margin: "2rem" }} >
+        <Typography
+          variant="h3"
+          align="center"
+          sx={{ margin: "2rem", color: "#151E3E" }}
+        >
           Gallery
         </Typography>
         <Stack
@@ -74,13 +78,23 @@ export default function Gallery() {
               <Button
                 key={i}
                 sx={[
-                  {},
+                  { border: "1px solid #151E3E" },
                   filter !== item && {
                     backgroundColor: "white",
                     color: "#151E3E",
-                    border: "1px solid #151E3E",
+                    "&:hover": {
+                      color: "white",
+                      backgroundColor: "#5A5A5A",
+                    },
                   },
-                  filter === item && { backgroundColor: "#151E3E" },
+                  filter === item && {
+                    backgroundColor: "#151E3E",
+                    color: "white",
+                    "&:hover": {
+                      color: "white",
+                      backgroundColor: "#151E3E",
+                    },
+                  },
                 ]}
                 variant="contained"
                 onClick={() => setFilter(item)}
@@ -90,7 +104,11 @@ export default function Gallery() {
             ))}
           </ButtonGroup>
         </Stack>
-        <Typography variant="h4" textAlign="center" sx={{ margin: "1rem" }}>
+        <Typography
+          variant="h4"
+          textAlign="center"
+          sx={[{ margin: "1rem", color: "#151E3E" }]}
+        >
           {filter}
         </Typography>
         <Grid

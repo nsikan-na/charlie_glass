@@ -47,11 +47,13 @@ const Home = () => {
           <AppBar
             elevation={0}
             position="fixed"
-            sx={{
-              backgroundColor: "rgba(0, 0, 0,0)",
-              border: "0",
-              boxShadow: "0",
-            }}
+            sx={[
+              {
+                backgroundColor: "rgba(0, 0, 0,0)",
+                border: "0",
+                boxShadow: "0",
+              },
+            ]}
           >
             <Container maxWidth="xl">
               <Toolbar disableGutters>
@@ -83,7 +85,7 @@ const Home = () => {
                     onClick={handleOpenNavMenu}
                     color="inherit"
                   >
-                    <MenuIcon />
+                    <MenuIcon sx={{ color: "white" }} />
                   </IconButton>
                   <Menu
                     id="menu-appbar"
@@ -107,7 +109,7 @@ const Home = () => {
                       <MenuItem key={i} onClick={handleCloseNavMenu}>
                         <Link
                           to={page.path}
-                          style={{ textDecoration: "none", color: "black" }}
+                          style={{ textDecoration: "none", color: "#151E3E" }}
                         >
                           <Typography textAlign="center">
                             {page.label}
@@ -164,7 +166,7 @@ const Home = () => {
                               backgroundColor: "white",
                               border: "none",
                               boxShadow: "none",
-                              color: "black",
+                              color: "#151E3E",
                             },
                           },
                         ]}
@@ -212,7 +214,7 @@ const Home = () => {
                       fontFamily: "monospace",
                       fontWeight: 700,
                       letterSpacing: ".3rem",
-                      color: "black",
+                      color: "#151E3E",
                       textDecoration: "none",
                     }}
                   >
@@ -229,7 +231,7 @@ const Home = () => {
                     onClick={handleOpenNavMenu}
                     color="inherit"
                   >
-                    <MenuIcon />
+                    <MenuIcon sx={{ color: "#151E3E" }} />
                   </IconButton>
                   <Menu
                     id="menu-appbar"
@@ -253,7 +255,7 @@ const Home = () => {
                       <MenuItem key={i} onClick={handleCloseNavMenu}>
                         <Link
                           to={page.path}
-                          style={{ textDecoration: "none", color: "black" }}
+                          style={{ textDecoration: "none", color: "#151E3E" }}
                         >
                           <Typography textAlign="center">
                             {page.label}
@@ -272,7 +274,7 @@ const Home = () => {
                       display: { xs: "flex", md: "none" },
                       flexGrow: 1,
                       fontWeight: 700,
-                      color: "black",
+                      color: "#151E3E",
                       textDecoration: "none",
                     }}
                   >
@@ -301,13 +303,13 @@ const Home = () => {
                         sx={[
                           {
                             my: 2,
-                            color: "black",
+                            color: "#151E3E",
                             display: "block",
-                            backgroundColor: "white",
+                            backgroundColor: "rgba(0, 0, 0, 0)",
                             border: "none",
                             boxShadow: "none",
                             "&:hover": {
-                              backgroundColor: "black",
+                              backgroundColor: "#151E3E",
                               border: "none",
                               boxShadow: "none",
                               color: "white",
@@ -320,7 +322,7 @@ const Home = () => {
                           sx={[
                             {},
                             page.path === pathname && {
-                              borderBottom: "1px solid black",
+                              borderBottom: "1px solid #151E3E",
                             },
                           ]}
                         >
@@ -331,7 +333,11 @@ const Home = () => {
                   ))}
                 </Box>
                 <Stack
-                  sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+                  sx={{
+                    flexGrow: 1,
+                    display: { xs: "none", md: "flex" },
+                    color: "#151E3E",
+                  }}
                   alignItems="flex-end"
                 >
                   <Typography variant="body1">Call here</Typography>
@@ -341,6 +347,7 @@ const Home = () => {
             </Container>
           </AppBar>
         )}
+
         <Box
           sx={{
             position: "relative",

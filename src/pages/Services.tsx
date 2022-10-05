@@ -25,7 +25,7 @@ export default function Services() {
         <Typography
           variant="h3"
           textAlign="center"
-          sx={{ margin: "2rem" }}
+          sx={{ margin: "2rem", color: "#151E3E" }}
           id="Services"
         >
           Services
@@ -38,11 +38,7 @@ export default function Services() {
           Anything the customer desires our specialists are always there ensure
           that the customer is 100% satisfied.
         </Typography>
-        <Grid
-          container
-          spacing={1}
-          columns={{ xs: 4, sm: 8, md: 10 }}
-        >
+        <Grid container spacing={1} columns={{ xs: 4, sm: 8, md: 10 }}>
           {[
             {
               title: "Shower Doors",

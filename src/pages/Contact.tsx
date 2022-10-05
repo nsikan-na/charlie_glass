@@ -3,9 +3,6 @@ import {
   Box,
   Typography,
   Container,
-  // List,
-  // ListItem,
-  // ListItemText,
   TextField,
   Stack,
   useMediaQuery,
@@ -28,18 +25,14 @@ export default function Contact() {
     <>
       <Box
         sx={[
-          {},
+          { color: "#151E3E" },
           !matches && {
             width: "70%",
             margin: "0 auto 3rem",
           },
         ]}
       >
-        <Typography
-          variant="h3"
-          textAlign="center"
-          sx={{ margin: "2rem" }}
-        >
+        <Typography variant="h3" textAlign="center" sx={{ margin: "2rem" }}>
           Contact Us
         </Typography>
         <Stack
@@ -56,25 +49,6 @@ export default function Contact() {
               margin: "1rem",
             }}
           >
-  
-            {/* <List sx={{ margin: "0 auto" }}>
-              {[
-                { title: "Located at ", p: "326 50 st, Brooklyn, NY 11220" },
-                { title: "Call Us", p: "917-848-8128" },
-                { title: "Email @", p: "info@charlieglass.com" },
-                { title: "Open Monday-Friday", p: " 8am - 5pm" },
-              ].map((content) => {
-                return (
-                  <ListItem key={content.title}>
-                    <ListItemText
-                      sx={{ textAlign: "center" }}
-                      primary={<Typography>{content.title}</Typography>}
-                      secondary={<Typography>{content.p}</Typography>}
-                    ></ListItemText>
-                  </ListItem>
-                );
-              })}
-            </List> */}
             <Typography
               variant="body1"
               sx={{ width: "70%", margin: "auto", textIndent: "1rem" }}
@@ -129,7 +103,15 @@ export default function Contact() {
             <br />
             <Button
               variant="contained"
-              sx={{ margin: "1rem auto", backgroundColor: "#151E3E" }}
+              sx={[
+                {
+                  margin: "1rem auto",
+                  backgroundColor: "#151E3E",
+                  "&:hover": {
+                    backgroundColor: "#151E3E",
+                  },
+                },
+              ]}
             >
               Contact
             </Button>

@@ -64,7 +64,7 @@ function Layout() {
                     fontFamily: "monospace",
                     fontWeight: 700,
                     letterSpacing: ".3rem",
-                    color: "black",
+                    color: "#151E3E",
                     textDecoration: "none",
                   }}
                 >
@@ -81,7 +81,7 @@ function Layout() {
                   onClick={handleOpenNavMenu}
                   color="inherit"
                 >
-                  <MenuIcon />
+                  <MenuIcon sx={{ color: "#151E3E" }} />
                 </IconButton>
                 <Menu
                   id="menu-appbar"
@@ -105,7 +105,7 @@ function Layout() {
                     <MenuItem key={i} onClick={handleCloseNavMenu}>
                       <Link
                         to={page.path}
-                        style={{ textDecoration: "none", color: "black" }}
+                        style={{ textDecoration: "none", color: "#151E3E" }}
                       >
                         <Typography textAlign="center">{page.label}</Typography>
                       </Link>
@@ -122,7 +122,7 @@ function Layout() {
                     display: { xs: "flex", md: "none" },
                     flexGrow: 1,
                     fontWeight: 700,
-                    color: "black",
+                    color: "#151E3E",
                     textDecoration: "none",
                   }}
                 >
@@ -151,13 +151,13 @@ function Layout() {
                       sx={[
                         {
                           my: 2,
-                          color: "black",
+                          color: "#151E3E",
                           display: "block",
                           backgroundColor: "white",
                           border: "none",
                           boxShadow: "none",
                           "&:hover": {
-                            backgroundColor: "black",
+                            backgroundColor: "#151E3E",
                             border: "none",
                             boxShadow: "none",
                             color: "white",
@@ -170,7 +170,7 @@ function Layout() {
                         sx={[
                           {},
                           page.path === pathname && {
-                            borderBottom: "1px solid black",
+                            borderBottom: "1px solid #151E3E",
                           },
                         ]}
                       >
@@ -181,7 +181,11 @@ function Layout() {
                 ))}
               </Box>
               <Stack
-                sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex" },
+                  color: "#151E3E",
+                }}
                 alignItems="flex-end"
               >
                 <Typography variant="body1">Call here</Typography>
@@ -239,6 +243,9 @@ function Layout() {
                   sx={{
                     marginTop: "1rem",
                     backgroundColor: "#151E3E",
+                    "&:hover": {
+                      backgroundColor: "#151E3E",
+                    },
                   }}
                 >
                   Contact Us
