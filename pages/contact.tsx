@@ -93,7 +93,6 @@ export default function Contact() {
             {data.success ? "Email Sent" : data.message}
           </Alert>
         </Snackbar>
-        ;
         <Typography variant="h3" textAlign="center" sx={{ margin: "2rem" }}>
           Contact Us
         </Typography>
