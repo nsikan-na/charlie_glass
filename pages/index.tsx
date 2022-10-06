@@ -70,6 +70,9 @@ const Home = () => {
                       letterSpacing: ".3rem",
                       color: "white",
                       textDecoration: "none",
+                      "&:hover": {
+                        cursor: "pointer",
+                      },
                     }}
                   >
                     Charlie Glass Inc.
@@ -131,6 +134,9 @@ const Home = () => {
                         fontWeight: 700,
                         color: "white",
                         textDecoration: "none",
+                        "&:hover": {
+                          cursor: "pointer",
+                        },
                       }}
                     >
                       Charlie Glass Inc.
@@ -218,6 +224,9 @@ const Home = () => {
                       letterSpacing: ".3rem",
                       color: "#151E3E",
                       textDecoration: "none",
+                      "&:hover": {
+                        cursor: "pointer",
+                      },
                     }}
                   >
                     Charlie Glass Inc.
@@ -273,13 +282,18 @@ const Home = () => {
                       variant="h5"
                       noWrap
                       component="a"
-                      sx={{
-                        display: { xs: "flex", md: "none" },
-                        flexGrow: 1,
-                        fontWeight: 700,
-                        color: "#151E3E",
-                        textDecoration: "none",
-                      }}
+                      sx={[
+                        {
+                          display: { xs: "flex", md: "none" },
+                          flexGrow: 1,
+                          fontWeight: 700,
+                          color: "#151E3E",
+                          textDecoration: "none",
+                          "&:hover": {
+                            cursor: "pointer",
+                          },
+                        },
+                      ]}
                     >
                       Charlie Glass Inc.
                     </Typography>
@@ -383,7 +397,15 @@ const Home = () => {
             >
               <Typography
                 variant="h3"
-                sx={{ marginBottom: "2rem", fontWeight: "bold" }}
+                sx={[
+                  {
+                    marginBottom: "2rem",
+                    fontWeight: "bold",
+                    "&:hover": {
+                      cursor: "pointer",
+                    },
+                  },
+                ]}
               >
                 Charlie Glass Inc.
               </Typography>

@@ -88,15 +88,20 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                       variant="h5"
                       noWrap
                       component="a"
-                      sx={{
-                        mr: 2,
-                        display: { xs: "none", md: "flex" },
-                        fontFamily: "monospace",
-                        fontWeight: 700,
-                        letterSpacing: ".3rem",
-                        color: "#151E3E",
-                        textDecoration: "none",
-                      }}
+                      sx={[
+                        {
+                          mr: 2,
+                          display: { xs: "none", md: "flex" },
+                          fontFamily: "monospace",
+                          fontWeight: 700,
+                          letterSpacing: ".3rem",
+                          color: "#151E3E",
+                          textDecoration: "none",
+                          "&:hover": {
+                            cursor: "pointer",
+                          },
+                        },
+                      ]}
                     >
                       Charlie Glass Inc.
                     </Typography>
@@ -153,13 +158,18 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         noWrap
                         textAlign="right"
                         component="a"
-                        sx={{
-                          display: { xs: "flex", md: "none" },
-                          flexGrow: 1,
-                          fontWeight: 700,
-                          color: "#151E3E",
-                          textDecoration: "none",
-                        }}
+                        sx={[
+                          {
+                            display: { xs: "flex", md: "none" },
+                            flexGrow: 1,
+                            fontWeight: 700,
+                            color: "#151E3E",
+                            textDecoration: "none",
+                            "&:hover": {
+                              cursor: "pointer",
+                            },
+                          },
+                        ]}
                       >
                         Charlie Glass Inc.
                       </Typography>
