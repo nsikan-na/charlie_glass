@@ -293,7 +293,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         marginTop: "1rem",
                         backgroundColor: "#151E3E",
                         "&:hover": {
-                          backgroundColor: "#151E3E",
+                          backgroundColor: "#5A5A5A",
                         },
                       }}
                     >

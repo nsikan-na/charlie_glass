@@ -401,9 +401,6 @@ const Home = () => {
                   {
                     marginBottom: "2rem",
                     fontWeight: "bold",
-                    "&:hover": {
-                      cursor: "pointer",
-                    },
                   },
                 ]}
               >

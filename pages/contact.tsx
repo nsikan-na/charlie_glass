@@ -202,7 +202,7 @@ export default function Contact() {
                     margin: "1rem auto",
                     backgroundColor: "#151E3E",
                     "&:hover": {
-                      backgroundColor: "#151E3E",
+                      backgroundColor: "#5A5A5A",
                     },
                   },
                 ]}
