@@ -8,6 +8,7 @@ import {
   useMediaQuery,
   Box,
 } from "@mui/material";
+import Image from "next/image";
 export default function Gallery() {
   const [filter, setFilter] = useState<string>("All");
   const itemData: { title: string; img: string }[] = [];
@@ -127,12 +128,11 @@ export default function Gallery() {
                 key={item.img}
                 sx={{ textAlign: "center", margin: "auto" }}
               >
-                <img
+                <Image
                   src={`${item.img}`}
                   alt={item.title}
                   width="275"
                   height="275"
-                  loading="lazy"
                 />
               </Grid>
             ))}
