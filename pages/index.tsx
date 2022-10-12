@@ -199,7 +199,7 @@ const Home = () => {
                   alignItems="flex-end"
                 >
                   <Typography variant="body1">Call here</Typography>
-                  <Typography variant="body1">(917-848-8128)</Typography>
+                  <Typography variant="body1">(718)-765-0087</Typography>
                 </Stack>
               </Toolbar>
             </Container>
@@ -359,7 +359,7 @@ const Home = () => {
                   alignItems="flex-end"
                 >
                   <Typography variant="body1">Call here</Typography>
-                  <Typography variant="body1">(917-848-8128)</Typography>
+                  <Typography variant="body1">(718)-765-0087</Typography>
                 </Stack>
               </Toolbar>
             </Container>

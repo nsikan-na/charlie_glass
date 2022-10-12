@@ -62,7 +62,6 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   }, [pathname]);
   const pages = [
     { path: "/", label: "Home" },
-    // { path: "/about", label: "About" },
     { path: "/services", label: "Services" },
     { path: "/gallery", label: "Gallery" },
     { path: "/contact", label: "Contact" },
@@ -235,7 +234,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     alignItems="flex-end"
                   >
                     <Typography variant="body1">Call here</Typography>
-                    <Typography variant="body1">(917-848-8128)</Typography>
+                    <Typography variant="body1">(718)-765-0087</Typography>
                   </Stack>
                 </Toolbar>
               </Container>
@@ -322,7 +321,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             >
               {[
                 { title: "Located at ", p: "326 50 st, Brooklyn, NY 11220" },
-                { title: "Call Us", p: "917-848-8128" },
+                { title: "Call Us", p: "(718)-765-0087" },
                 { title: "Email @", p: "info@charlieglass.com" },
                 { title: "Open Monday-Friday", p: " 8am - 5pm" },
               ].map((content) => {

@@ -161,6 +161,7 @@ export default function Contact() {
                   { label: "Shelves", name: "shelves" },
                   { label: "Glass Partition", name: "glassPartition" },
                   { label: "Store Fronts", name: "storeFronts" },
+                  { label: "Mirrors", name: "mirrors" },
                 ].map((content, i) => (
                   <FormControlLabel
                     key={i}

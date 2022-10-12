@@ -3,11 +3,17 @@ import {
   Card,
   Typography,
   CardContent,
-  CardMedia,
   Grid,
   Box,
+  List,
+  ListItem,
   useMediaQuery,
+  Divider,
+  ListItemIcon,
+  ListItemButton,
+  ListItemText,
 } from "@mui/material";
+import CheckIcon from "@mui/icons-material/Check";
 
 export default function Services() {
   const matches = useMediaQuery("(max-width:1400px)");
@@ -42,45 +48,58 @@ export default function Services() {
           {[
             {
               title: "Shower Doors",
-              p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-              img: "/ShowerDoors/1.jpg",
+              list: [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+              ],
             },
             {
               title: "Shelves",
-              p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-              img: "/Shelves/1.jpg",
+              list: [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+              ],
             },
             {
               title: "Glass Partition",
-              p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-              img: "/GlassPartition/1.jpg",
+              list: [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+              ],
             },
             {
               title: "Storefronts",
-              p: "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-              img: "/ShowerDoors/1.jpg",
+              list: [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+              ],
+            },
+            {
+              title: "Mirrors",
+              list: [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+              ],
             },
           ].map((content, i) => {
             return (
               <Grid
                 item
-                sm={4}
-                md={4}
+                sm={3}
+                md={3}
                 key={i}
                 sx={{ textAlign: "center", margin: "auto" }}
               >
                 <Card sx={{ margin: "1rem" }}>
-                  <CardMedia
-                    height="350px"
-                    component="img"
-                    image={content.img}
-                    alt={content.title}
-                  />
                   <CardContent
                     key={content.title}
                     sx={{
-                      backgroundColor: "#151E3E",
-                      color: "white",
+                      backgroundColor: "#5A5A5A",
                     }}
                   >
                     <Typography
@@ -88,12 +107,40 @@ export default function Services() {
                       sx={{
                         textAlign: "center",
                         fontWeight: "bold",
+                        color: "#151E3E",
                       }}
                     >{`${content.title}`}</Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{ margin: "auto", width: "80%" }}
-                    >{`${content.p}`}</Typography>
+                    <List>
+                      {content.list.map((item, t, arr) => (
+                        <>
+                          <ListItem>
+                            <ListItemIcon>
+                              <CheckIcon style={{ color: "#151E3E" }} />
+                            </ListItemIcon>
+                            <ListItemText
+                              key={t}
+                              sx={{ color: "white" }}
+                              primary={item}
+                            />
+                          </ListItem>
+                          {arr.length - 1 !== t ? (
+                            <>
+                              {
+                                <Divider
+                                  variant="middle"
+                                  sx={{
+                                    borderBottomWidth: 2,
+                                    backgroundColor: "#333333",
+                                  }}
+                                />
+                              }
+                            </>
+                          ) : (
+                            <></>
+                          )}
+                        </>
+                      ))}
+                    </List>
                   </CardContent>
                 </Card>
               </Grid>
