@@ -91,7 +91,6 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         {
                           mr: 2,
                           display: { xs: "none", md: "flex" },
-                          fontFamily: "monospace",
                           fontWeight: 700,
                           letterSpacing: ".3rem",
                           color: "#151E3E",
@@ -272,7 +271,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     transform: "translate(-50%,30%)",
                   }}
                 >
-                  <Typography variant="h4" sx={{ margin: "1rem" }}>
+                  <Typography
+                    variant="h4"
+                    sx={{ margin: "1rem", fontWeight: "bold" }}
+                  >
                     GET A FREE ESTIMATE TODAY
                   </Typography>
 

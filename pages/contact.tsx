@@ -24,6 +24,7 @@ export default function Contact() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [services, setServices] = useState<string[]>([]);
   const matches = useMediaQuery("(max-width:1400px)");
+  const matches2 = useMediaQuery("(max-width:600px)");
   const [open, setOpen] = useState(false);
   const [data, setData] = useState<any>({});
   const handleClose: any = (_: any, reason: any) => {
@@ -97,18 +98,23 @@ export default function Contact() {
           Contact Us
         </Typography>
         <Stack
-          justifyContent="space-evenly"
+          justifyContent="center"
           alignItems="center"
           direction={{ xs: "column", sm: "row" }}
-          sx={{ margin: "1rem 0 4rem" }}
+          sx={{}}
         >
           <Container
-            sx={{
-              backgroundColor: "#151E3E",
-              color: "white",
-              padding: "4rem 0 4rem",
-              margin: "1rem",
-            }}
+            sx={[
+              {
+                backgroundColor: "#151E3E",
+                color: "white",
+                padding: "4rem 0 4rem",
+                margin: "1rem",
+              },
+              !matches2 && {
+                width: "90%",
+              },
+            ]}
           >
             <Typography
               variant="body1"
@@ -121,7 +127,7 @@ export default function Contact() {
               all your glass needs.
             </Typography>
           </Container>
-          <Container sx={{ margin: "1rem" }}>
+          <Container sx={[{ margin: "1rem" },]}>
             <TextField
               label="Name"
               sx={{ margin: ".5rem" }}
@@ -155,7 +161,10 @@ export default function Contact() {
               What service can our specialists provide you with today?
             </Typography>
             <FormGroup>
-              <Stack direction={{ xs: "column", sm: "row" }}>
+              <Stack
+                direction={{ xs: "column", lg: "row" }}
+                style={{ display: "flex" }}
+              >
                 {[
                   { label: "Shower Doors", name: "showerDoors" },
                   { label: "Shelves", name: "shelves" },
@@ -167,6 +176,7 @@ export default function Contact() {
                     key={i}
                     label={content.label}
                     control={<Checkbox />}
+                    style={{ whiteSpace: "nowrap" }}
                     value={content.name}
                     onChange={(e) => {
                       //@ts-ignore

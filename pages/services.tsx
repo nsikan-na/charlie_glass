@@ -48,43 +48,28 @@ export default function Services() {
           {[
             {
               title: "Shower Doors",
-              list: [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-              ],
+              list: ["Frameless", "Sliding doors", "All colors"],
             },
-            {
-              title: "Shelves",
-              list: [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-              ],
-            },
+
             {
               title: "Glass Partition",
-              list: [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-              ],
+              list: ["1/2 inch glass", "Herculite"],
             },
             {
               title: "Storefronts",
               list: [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
+                "Frameless storefronts",
+                "Pocket tube storefronts",
+                "Curtain wall system",
               ],
             },
             {
+              title: "Shelves",
+              list: ["all needs"],
+            },
+            {
               title: "Mirrors",
-              list: [
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elite",
-              ],
+              list: ["Clear, bronze, grey, and black"],
             },
           ].map((content, i) => {
             return (
@@ -129,7 +114,7 @@ export default function Services() {
                                 <Divider
                                   variant="middle"
                                   sx={{
-                                    borderBottomWidth: 2,
+                                    borderBottomWidth: "2",
                                     backgroundColor: "#333333",
                                   }}
                                 />
