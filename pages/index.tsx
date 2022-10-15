@@ -11,6 +11,8 @@ import {
   Stack,
   Card,
   CardContent,
+  useMediaQuery,
+  Divider,
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Link from "next/link";
@@ -39,7 +41,7 @@ const Home = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
+  const matches = useMediaQuery("(min-width:600px)");
   return (
     <>
       <Box>
@@ -410,10 +412,10 @@ const Home = () => {
                 direction={{ xs: "column", sm: "row" }}
               >
                 <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                  326 50th st. brooklyn, NY 11220
+                  326 50th st. Brooklyn, NY 11220
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                  INFO@CHARLIEGLASS.COM
+                  INFO@CHARLIEGLASSINC.COM
                 </Typography>
               </Stack>
             </Container>
@@ -429,8 +431,20 @@ const Home = () => {
             }}
             textAlign="center"
           >
-            Services
+            Our Services
           </Typography>
+          <Container
+            sx={[
+              {
+                margin: "1rem auto 2rem ",
+                backgroundColor: "#151E3E",
+                paddingTop: ".25rem",
+                borderRadius: "25%",
+              },
+              !matches && { width: "15%" },
+              matches && { width: "2%" },
+            ]}
+          ></Container>
           <Stack
             justifyContent="space-evenly"
             alignItems="center"
@@ -439,37 +453,63 @@ const Home = () => {
             {[
               {
                 title: "Glass Partitions",
-                p: "With one of our most popular services, this brings out all of the different ways people want their offices to be designed.",
+                p: `With one of our most popular 
+                services; this brings out all of the 
+                different ways people want their
+                 offices to be designed.`,
               },
               {
                 title: "Storefronts",
-                p: " When it comes to doing storefronts you want the most dedicated professional doing the job . When it comes to how you want your entrance to.",
+                p: `You should get the most devoted specialists possible to handle your storefronts.
+                When it comes to how you want your entrance to a bakery, deli, barbershop, etc.
+                You can always ask for ideas or tell us how you want anything done so that it looks exactly as you imagined.`,
               },
               {
                 title: "Mirrors",
-                p: " Our team dedicates to putting mirrors in bathrooms, gyms, indexs anywhere that a customer wants a mirror to be placed.",
+                p: `Our team dedicates to putting mirrors
+                in bathrooms, gyms, homes, anywhere
+                that a customer wants a mirror to be placed.`,
               },
-            ].map((content, i) => {
+            ].map((content, i, arr) => {
               return (
-                <Card
-                  key={i}
-                  sx={{ border: "none", boxShadow: "none", maxWidth: 345 }}
-                >
-                  <CardContent>
-                    <Typography
-                      variant="h5"
-                      textAlign="center"
-                      sx={{
-                        color: "#5A5A5A",
-                        fontWeight: "bold",
+                <>
+                  <Card
+                    key={i}
+                    sx={{
+                      border: "none",
+                      boxShadow: "none",
+                      height: 250,
+                      maxWidth: 345,
+                    }}
+                  >
+                    <CardContent>
+                      <Typography
+                        variant="h5"
+                        textAlign="center"
+                        sx={{
+                          color: "#151E3E",
+                          fontWeight: "bold",
+                        }}
+                      >{`${content.title}`}</Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{ textIndent: "1rem" }}
+                      >{`${content.p}`}</Typography>
+                    </CardContent>
+                  </Card>
+                  {arr.length - 1 !== i && matches ? (
+                    <div
+                      key={i}
+                      style={{
+                        backgroundColor: "rgba(161, 161, 161, 0.3)",
+                        borderLeft: ".01px solid rgba(161, 161, 161, 0.3)",
+                        height: "200px",
                       }}
-                    >{`${content.title}`}</Typography>
-                    <Typography
-                      variant="body1"
-                      sx={{ textIndent: "1rem" }}
-                    >{`${content.p}`}</Typography>
-                  </CardContent>
-                </Card>
+                    ></div>
+                  ) : (
+                    ""
+                  )}
+                </>
               );
             })}
           </Stack>

@@ -91,7 +91,7 @@ export default function Contact() {
               !data.success && { backgroundColor: "red" },
             ]}
           >
-            {data.success ? "Email Sent" : data.message}
+            {data.success ? "Email Sent!" : data.errors}
           </Alert>
         </Snackbar>
         <Typography variant="h3" textAlign="center" sx={{ margin: "2rem" }}>
@@ -127,7 +127,7 @@ export default function Contact() {
               all your glass needs.
             </Typography>
           </Container>
-          <Container sx={[{ margin: "1rem" },]}>
+          <Container sx={[{ margin: "1rem" }]}>
             <TextField
               label="Name"
               sx={{ margin: ".5rem" }}
@@ -154,7 +154,7 @@ export default function Contact() {
             <Typography
               variant="body1"
               sx={{
-                margin: "1rem 0",
+                margin: "1rem 0 -.25rem 0",
               }}
               textAlign="left"
             >
@@ -168,9 +168,39 @@ export default function Contact() {
                 {[
                   { label: "Shower Doors", name: "showerDoors" },
                   { label: "Shelves", name: "shelves" },
-                  { label: "Glass Partition", name: "glassPartition" },
                   { label: "Store Fronts", name: "storeFronts" },
+                ].map((content, i) => (
+                  <FormControlLabel
+                    key={i}
+                    label={content.label}
+                    control={<Checkbox />}
+                    style={{ whiteSpace: "nowrap" }}
+                    value={content.name}
+                    onChange={(e) => {
+                      //@ts-ignore
+                      e.target.checked
+                        ? //@ts-ignore
+                          services.push(e.target.value)
+                        : setServices(
+                            services.filter(
+                              //@ts-ignore
+                              (service) => service !== e.target.value
+                            )
+                          );
+                    }}
+                  />
+                ))}
+              </Stack>
+            </FormGroup>
+            <FormGroup>
+              <Stack
+                direction={{ xs: "column", lg: "row" }}
+                style={{ display: "flex" }}
+              >
+                {[
+                  { label: "Glass Partition", name: "glassPartition" },
                   { label: "Mirrors", name: "mirrors" },
+                  { label: "Other", name: "other" },
                 ].map((content, i) => (
                   <FormControlLabel
                     key={i}

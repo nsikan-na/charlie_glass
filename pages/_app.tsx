@@ -284,7 +284,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                   >
                     The all-in-one shop for all of your glass work desires is
                     Charlie Glass. Together, we will design a layout that
-                    expressed your business, lifestyle, and creativity. We are
+                    expresses your business, lifestyle, and creativity. We are
                     ready to help you achieve your next project today.
                   </Typography>
                   <Link href="/contact" style={{ textDecoration: "none" }}>
@@ -322,9 +322,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
               direction={{ xs: "column", sm: "row" }}
             >
               {[
-                { title: "Located at ", p: "326 50 st, Brooklyn, NY 11220" },
+                { title: "Located at ", p: "326 50th st. Brooklyn, NY 11220" },
                 { title: "Call Us", p: "(718)-765-0087" },
-                { title: "Email @", p: "info@charlieglass.com" },
+                { title: "Email @", p: "info@charlieglassinc.com" },
                 { title: "Open Monday-Friday", p: " 8am - 5pm" },
               ].map((content) => {
                 return (
@@ -350,12 +350,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
               justifyContent="center"
               alignItems="center"
               textAlign="center"
+              style={{ fontSize: ".9rem" }}
             >
-              <Chip
-                icon={<CopyrightIcon style={{ color: "white" }} />}
-                label="Charlie Glass Inc."
-                sx={{ color: "white", backgroundColor: "#151E3E" }}
-              />
+              Copyright ©️ 2022 Charlie Glass - All Rights Reserved.
             </Stack>
           </Box>
         </Context.Provider>

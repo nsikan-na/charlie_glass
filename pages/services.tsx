@@ -10,7 +10,6 @@ import {
   useMediaQuery,
   Divider,
   ListItemIcon,
-  ListItemButton,
   ListItemText,
 } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
@@ -24,7 +23,7 @@ export default function Services() {
           {},
           !matches && {
             width: "70%",
-            margin: "auto",
+            margin: "auto ",
           },
         ]}
       >
@@ -39,7 +38,7 @@ export default function Services() {
         <Typography
           variant="body1"
           textAlign="center"
-          sx={{ textIndent: "2rem", margin: "auto", width: "70%" }}
+          sx={{ textIndent: "2rem", margin: "2rem auto", width: "70%" }}
         >
           Anything the customer desires our specialists are always there ensure
           that the customer is 100% satisfied.
@@ -49,11 +48,13 @@ export default function Services() {
             {
               title: "Shower Doors",
               list: ["Frameless", "Sliding doors", "All colors"],
+              num: 3,
             },
 
             {
               title: "Glass Partition",
-              list: ["1/2 inch glass", "Herculite"],
+              list: ["1/2 inch glass", "Herculite", ""],
+              num: 2,
             },
             {
               title: "Storefronts",
@@ -62,14 +63,17 @@ export default function Services() {
                 "Pocket tube storefronts",
                 "Curtain wall system",
               ],
+              num: 3,
             },
             {
               title: "Shelves",
-              list: ["all needs"],
+              list: ["all needs", "", ""],
+              num: 1,
             },
             {
               title: "Mirrors",
-              list: ["Clear, bronze, grey, and black"],
+              list: ["Clear, bronze, grey, and black", "", ""],
+              num: 1,
             },
           ].map((content, i) => {
             return (
@@ -80,11 +84,11 @@ export default function Services() {
                 key={i}
                 sx={{ textAlign: "center", margin: "auto" }}
               >
-                <Card sx={{ margin: "1rem" }}>
+                <Card sx={{ margin: "0 0 1rem", width: 285 }}>
                   <CardContent
                     key={content.title}
                     sx={{
-                      backgroundColor: "#5A5A5A",
+                      backgroundColor: "#7b7b7b",
                     }}
                   >
                     <Typography
@@ -99,27 +103,32 @@ export default function Services() {
                       {content.list.map((item, t, arr) => (
                         <>
                           <ListItem>
-                            <ListItemIcon>
-                              <CheckIcon style={{ color: "#151E3E" }} />
-                            </ListItemIcon>
+                            {item ? (
+                              <ListItemIcon>
+                                <CheckIcon style={{ color: "#151E3E" }} />
+                              </ListItemIcon>
+                            ) : (
+                              <ListItemIcon>
+                                <CheckIcon style={{ color: "#7b7b7b" }} />
+                              </ListItemIcon>
+                            )}
                             <ListItemText
                               key={t}
                               sx={{ color: "white" }}
                               primary={item}
                             />
                           </ListItem>
-                          {arr.length - 1 !== t ? (
-                            <>
-                              {
-                                <Divider
-                                  variant="middle"
-                                  sx={{
-                                    borderBottomWidth: "2",
-                                    backgroundColor: "#333333",
-                                  }}
-                                />
-                              }
-                            </>
+                          {arr.length - 1 !== t &&
+                          item &&
+                          t !== content.num - 1 ? (
+                            <Divider
+                              variant="middle"
+                              key={t}
+                              sx={{
+                                borderBottomWidth: "2",
+                                backgroundColor: "#333333",
+                              }}
+                            />
                           ) : (
                             <></>
                           )}
