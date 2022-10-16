@@ -21,6 +21,7 @@ import Link from "next/link";
 import { AppProps } from "next/app";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useRouter } from "next/router";
+import { uniqueId } from "lodash";
 const theme = createTheme({
   typography: {
     h1: {
@@ -140,8 +141,8 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         display: { xs: "block", md: "none" },
                       }}
                     >
-                      {pages.map((page, i) => (
-                        <MenuItem key={i} onClick={handleCloseNavMenu}>
+                      {pages.map((page) => (
+                        <MenuItem key={uniqueId()} onClick={handleCloseNavMenu}>
                           <Link
                             href={page.path}
                             style={{ textDecoration: "none", color: "#151E3E" }}
@@ -187,14 +188,13 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                       marginLeft: "5rem",
                     }}
                   >
-                    {pages.map((page, i) => (
+                    {pages.map((page) => (
                       <Link
                         href={page.path}
                         style={{ textDecoration: "none" }}
-                        key={i}
+                        key={uniqueId()}
                       >
                         <Button
-                          key={page.label}
                           variant="contained"
                           onClick={handleCloseNavMenu}
                           sx={[
@@ -309,8 +309,8 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         display: { xs: "block", md: "none" },
                       }}
                     >
-                      {pages.map((page, i) => (
-                        <MenuItem key={i} onClick={handleCloseNavMenu}>
+                      {pages.map((page) => (
+                        <MenuItem key={uniqueId()} onClick={handleCloseNavMenu}>
                           <Link
                             href={page.path}
                             style={{ textDecoration: "none", color: "#151E3E" }}
@@ -353,14 +353,13 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                       marginLeft: "5rem",
                     }}
                   >
-                    {pages.map((page, i) => (
+                    {pages.map((page) => (
                       <Link
                         href={page.path}
                         style={{ textDecoration: "none" }}
-                        key={i}
+                        key={uniqueId()}
                       >
                         <Button
-                          key={page.label}
                           variant="contained"
                           onClick={handleCloseNavMenu}
                           sx={[
@@ -464,8 +463,8 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         display: { xs: "block", md: "none" },
                       }}
                     >
-                      {pages.map((page, i) => (
-                        <MenuItem key={i} onClick={handleCloseNavMenu}>
+                      {pages.map((page) => (
+                        <MenuItem key={uniqueId()} onClick={handleCloseNavMenu}>
                           <Link
                             href={page.path}
                             style={{ textDecoration: "none", color: "#151E3E" }}
@@ -510,14 +509,13 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                       marginLeft: "5rem",
                     }}
                   >
-                    {pages.map((page, i) => (
+                    {pages.map((page) => (
                       <Link
                         href={page.path}
                         style={{ textDecoration: "none" }}
-                        key={i}
+                        key={uniqueId()}
                       >
                         <Button
-                          key={page.label}
                           variant="contained"
                           onClick={handleCloseNavMenu}
                           sx={[
@@ -654,7 +652,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                 { title: "Open Monday-Friday", p: " 8am - 5pm" },
               ].map((content) => {
                 return (
-                  <List key={content.title}>
+                  <List key={uniqueId()}>
                     <ListItem>
                       <ListItemText
                         sx={{ textAlign: "center" }}

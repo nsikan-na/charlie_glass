@@ -9,6 +9,7 @@ import {
   Box,
 } from "@mui/material";
 import Image from "next/image";
+import { uniqueId } from "lodash";
 export default function Gallery() {
   const [filter, setFilter] = useState<string>("All");
   const itemData: { title: string; img: string }[] = [];
@@ -76,7 +77,7 @@ export default function Gallery() {
               "Shower Doors",
             ].map((item, i) => (
               <Button
-                key={i}
+                key={uniqueId()}
                 sx={[
                   { border: "1px solid #151E3E" },
                   filter !== item && {
@@ -125,7 +126,7 @@ export default function Gallery() {
                 item
                 sm={4}
                 md={4}
-                key={item.img}
+                key={uniqueId()}
                 sx={{ textAlign: "center", margin: "auto" }}
               >
                 <Image

@@ -13,7 +13,7 @@ import {
   ListItemText,
 } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
-
+import { uniqueId } from "lodash";
 export default function Services() {
   const matches = useMediaQuery("(max-width:1400px)");
   return (
@@ -81,14 +81,14 @@ export default function Services() {
                 item
                 sm={3}
                 md={3}
-                key={i}
+                key={uniqueId()}
                 sx={{ textAlign: "center", margin: "auto" }}
               >
                 <Card sx={{ margin: "0 0 1rem", width: 285 }}>
                   <CardContent
-                    key={content.title}
+                    key={uniqueId()}
                     sx={{
-                      backgroundColor: "#7b7b7b",
+                      backgroundColor: "#AEACAC",
                     }}
                   >
                     <Typography
@@ -102,19 +102,19 @@ export default function Services() {
                     <List>
                       {content.list.map((item, t, arr) => (
                         <>
-                          <ListItem>
+                          <ListItem key={uniqueId()}>
                             {item ? (
                               <ListItemIcon>
                                 <CheckIcon style={{ color: "#151E3E" }} />
                               </ListItemIcon>
                             ) : (
                               <ListItemIcon>
-                                <CheckIcon style={{ color: "#7b7b7b" }} />
+                                <CheckIcon style={{ color: "#AEACAC" }} />
                               </ListItemIcon>
                             )}
                             <ListItemText
-                              key={t}
-                              sx={{ color: "white" }}
+                              key={uniqueId()}
+                              sx={{ color: "white", height: "50px" }}
                               primary={item}
                             />
                           </ListItem>
@@ -123,7 +123,7 @@ export default function Services() {
                           t !== content.num - 1 ? (
                             <Divider
                               variant="middle"
-                              key={t}
+                              key={uniqueId()}
                               sx={{
                                 borderBottomWidth: "2",
                                 backgroundColor: "#333333",

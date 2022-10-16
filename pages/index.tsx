@@ -8,7 +8,7 @@ import {
   CardContent,
   useMediaQuery,
 } from "@mui/material";
-
+import { uniqueId } from "lodash";
 const Home = () => {
   const matches = useMediaQuery("(min-width:600px)");
   return (
@@ -121,7 +121,7 @@ const Home = () => {
             return (
               <>
                 <Card
-                  key={i}
+                  key={uniqueId()}
                   sx={[
                     {
                       border: "none",
@@ -129,7 +129,7 @@ const Home = () => {
 
                       maxWidth: 345,
                     },
-                    matches && { height: 250 },
+                    matches && { height: 300 },
                   ]}
                 >
                   <CardContent>
@@ -139,6 +139,7 @@ const Home = () => {
                       sx={{
                         color: "#151E3E",
                         fontWeight: "bold",
+                        marginBottom: "1rem",
                       }}
                     >{`${content.title}`}</Typography>
                     <Typography
@@ -149,7 +150,7 @@ const Home = () => {
                 </Card>
                 {arr.length - 1 !== i && matches ? (
                   <div
-                    key={i}
+                    key={uniqueId()}
                     style={{
                       backgroundColor: "rgba(161, 161, 161, 0.3)",
                       borderLeft: ".01px solid rgba(161, 161, 161, 0.3)",

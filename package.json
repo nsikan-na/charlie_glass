@@ -9,6 +9,7 @@
     "@mui/material": "^5.10.7",
     "@sendgrid/mail": "^7.7.0",
     "@types/react": "^18.0.21",
+    "lodash": "^4.17.21",
     "next": "^12.3.1",
     "react": "latest",
     "react-dom": "latest"
@@ -37,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.186",
     "@types/node": "^18.7.23",
     "eslint": "^8.24.0",
     "react-router-dom": "^6.4.1",
