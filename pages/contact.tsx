@@ -163,7 +163,8 @@ export default function Contact() {
             <FormGroup>
               <Stack
                 direction={{ xs: "column", lg: "row" }}
-                style={{ display: "flex" }}
+                style={{ display: "flex", width: "80%" }}
+                justifyContent="space-between"
               >
                 {[
                   { label: "Shower Doors", name: "showerDoors" },
@@ -174,7 +175,7 @@ export default function Contact() {
                     key={i}
                     label={content.label}
                     control={<Checkbox />}
-                    style={{ whiteSpace: "nowrap" }}
+                    style={{ whiteSpace: "nowrap", width: "170px" }}
                     value={content.name}
                     onChange={(e) => {
                       //@ts-ignore
@@ -195,7 +196,8 @@ export default function Contact() {
             <FormGroup>
               <Stack
                 direction={{ xs: "column", lg: "row" }}
-                style={{ display: "flex" }}
+                style={{ display: "flex", width: "80%" }}
+                justifyContent="space-between"
               >
                 {[
                   { label: "Glass Partition", name: "glassPartition" },
@@ -206,7 +208,7 @@ export default function Contact() {
                     key={i}
                     label={content.label}
                     control={<Checkbox />}
-                    style={{ whiteSpace: "nowrap" }}
+                    style={{ whiteSpace: "nowrap", width: "170px" }}
                     value={content.name}
                     onChange={(e) => {
                       //@ts-ignore

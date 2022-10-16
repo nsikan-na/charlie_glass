@@ -475,12 +475,15 @@ const Home = () => {
                 <>
                   <Card
                     key={i}
-                    sx={{
-                      border: "none",
-                      boxShadow: "none",
-                      height: 250,
-                      maxWidth: 345,
-                    }}
+                    sx={[
+                      {
+                        border: "none",
+                        boxShadow: "none",
+
+                        maxWidth: 345,
+                      },
+                      matches && { height: 250 },
+                    ]}
                   >
                     <CardContent>
                       <Typography
