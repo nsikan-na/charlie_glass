@@ -74,8 +74,10 @@ export default async function handler(
             .replaceAll(",", "")}
           <h3>Message</h3>
           <p>${message}</p>
-          <h5>Email: ${email}</h5>
-          <h5>Phone Number: ${phoneNumber}</h5>
+          <h4 style='margin-bottom:-.05rem'>Email: </h4>
+          <div>${email}</div>
+          <h4 style='margin-bottom:-.05rem'>Phone Number: </h4>
+          <div>${phoneNumber}</div>
           `,
       };
       sgMail.send(msg);

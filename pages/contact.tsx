@@ -166,31 +166,29 @@ export default function Contact() {
                 style={{ display: "flex", width: "80%" }}
                 justifyContent="space-between"
               >
-                {[
-                  { label: "Shower Doors", name: "showerDoors" },
-                  { label: "Shelves", name: "shelves" },
-                  { label: "Store Fronts", name: "storeFronts" },
-                ].map((content, i) => (
-                  <FormControlLabel
-                    key={i}
-                    label={content.label}
-                    control={<Checkbox />}
-                    style={{ whiteSpace: "nowrap", width: "170px" }}
-                    value={content.label}
-                    onChange={(e) => {
-                      //@ts-ignore
-                      e.target.checked
-                        ? //@ts-ignore
-                          services.push(e.target.value)
-                        : setServices(
-                            services.filter(
-                              //@ts-ignore
-                              (service) => service !== e.target.value
-                            )
-                          );
-                    }}
-                  />
-                ))}
+                {["Shower Doors", "Shelves", "Store Fronts"].map(
+                  (content, i) => (
+                    <FormControlLabel
+                      key={i}
+                      label={content}
+                      control={<Checkbox />}
+                      style={{ whiteSpace: "nowrap", width: "170px" }}
+                      value={content}
+                      onChange={(e) => {
+                        //@ts-ignore
+                        e.target.checked
+                          ? //@ts-ignore
+                            services.push(e.target.value)
+                          : setServices(
+                              services.filter(
+                                //@ts-ignore
+                                (service) => service !== e.target.value
+                              )
+                            );
+                      }}
+                    />
+                  )
+                )}
               </Stack>
             </FormGroup>
             <FormGroup>
@@ -199,17 +197,13 @@ export default function Contact() {
                 style={{ display: "flex", width: "80%" }}
                 justifyContent="space-between"
               >
-                {[
-                  { label: "Glass Partition", name: "glassPartition" },
-                  { label: "Mirrors", name: "mirrors" },
-                  { label: "Other", name: "other" },
-                ].map((content, i) => (
+                {["Glass Partition", "Mirrors", "Other"].map((content, i) => (
                   <FormControlLabel
                     key={i}
-                    label={content.label}
+                    label={content}
                     control={<Checkbox />}
                     style={{ whiteSpace: "nowrap", width: "170px" }}
-                    value={content.label}
+                    value={content}
                     onChange={(e) => {
                       //@ts-ignore
                       e.target.checked
