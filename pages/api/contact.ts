@@ -12,6 +12,13 @@ export default async function handler(
       const { name, email, message, phoneNumber, services } = JSON.parse(
         JSON.stringify(data)
       );
+      const servicesArr: string[] = [];
+      if (services.showerDoors) servicesArr.push("Shower Doors");
+      if (services.shelves) servicesArr.push("Shelves");
+      if (services.glassPartition) servicesArr.push("Glass Partition");
+      if (services.storeFronts) servicesArr.push("Store Fronts");
+      if (services.mirrors) servicesArr.push("Mirrors");
+      if (services.other) servicesArr.push("Other");
       const emailReg = /(.+)@(.+){2,}\.(.+){2,}/;
       const phoneNumberReg = /^\d{10}$/;
       const errors: string[] = [];
@@ -20,7 +27,7 @@ export default async function handler(
         !name ||
         !email ||
         !phoneNumber ||
-        services.length === 0 ||
+        servicesArr.length === 0 ||
         !message
       ) {
         errors.push("Please complete all fields.");
@@ -40,13 +47,15 @@ export default async function handler(
             .replaceAll("-", "")
             .replaceAll("/", "")
             .replaceAll(" ", "")
+            .replaceAll("(", "")
+            .replaceAll(")", "")
         )
       ) {
         errors.push(
           "Phone Number is invalid. Please enter a valid phone number. For example, XXX-XXX-XXXX."
         );
       }
-      if (services.length === 0) {
+      if (servicesArr.length === 0) {
         errors.push("Please select at least one service.");
       }
       if (!message) {
@@ -67,7 +76,7 @@ export default async function handler(
         html: `
           <h1>From ${name},</h1>
           <h2>Services Requested</h2>
-          ${`<ul>${services.map(
+          ${`<ul>${servicesArr.map(
             (service: string) => `<li>${service}</li>`
           )}</ul>`
             .toString()

@@ -79,16 +79,14 @@ export default function Services() {
             return (
               <Grid
                 item
-                sm={3}
-                md={3}
                 key={uniqueId()}
                 sx={{ textAlign: "center", margin: "auto" }}
               >
-                <Card sx={{ margin: "0 0 1rem", width: 285 }}>
+                <Card sx={{ margin: "0 0 1rem", width: 225 }}>
                   <CardContent
                     key={uniqueId()}
                     sx={{
-                      backgroundColor: "#AEACAC",
+                      backgroundColor: "#151E3E",
                     }}
                   >
                     <Typography
@@ -96,7 +94,7 @@ export default function Services() {
                       sx={{
                         textAlign: "center",
                         fontWeight: "bold",
-                        color: "#151E3E",
+                        color: "white",
                       }}
                     >{`${content.title}`}</Typography>
                     <List>
@@ -105,11 +103,11 @@ export default function Services() {
                           <ListItem key={uniqueId()}>
                             {item ? (
                               <ListItemIcon>
-                                <CheckIcon style={{ color: "#151E3E" }} />
+                                <CheckIcon style={{ color: "white" }} />
                               </ListItemIcon>
                             ) : (
                               <ListItemIcon>
-                                <CheckIcon style={{ color: "#AEACAC" }} />
+                                <CheckIcon style={{ color: "#151E3E" }} />
                               </ListItemIcon>
                             )}
                             <ListItemText
@@ -126,7 +124,7 @@ export default function Services() {
                               key={uniqueId()}
                               sx={{
                                 borderBottomWidth: "2",
-                                backgroundColor: "#333333",
+                                backgroundColor: "white",
                               }}
                             />
                           ) : (

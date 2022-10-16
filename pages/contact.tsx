@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -16,17 +16,27 @@ import {
 } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
+import { uniqueId } from "lodash";
+
 export default function Contact() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [message, setMessage] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [services, setServices] = useState<string[]>([]);
+  const [services, setServices] = useState<any>({
+    showerDoors: false,
+    shelves: false,
+    glassPartition: false,
+    storeFronts: false,
+    mirrors: false,
+    others: false,
+  });
   const matches = useMediaQuery("(max-width:1400px)");
   const matches2 = useMediaQuery("(max-width:600px)");
   const [open, setOpen] = useState(false);
   const [data, setData] = useState<any>({});
+
   const handleClose: any = (_: any, reason: any) => {
     if (reason === "clickaway") {
       return;
@@ -34,6 +44,7 @@ export default function Contact() {
 
     setOpen(false);
   };
+
   const handleClick = () => {
     setOpen(true);
   };
@@ -46,8 +57,16 @@ export default function Contact() {
     });
     res.json().then((response) => {
       setData(response);
+      if (response.success) {
+        setName("");
+        setEmail("");
+        setPhoneNumber("");
+        setMessage("");
+        setServices([]);
+      }
       handleClick();
     });
+
     setIsLoading(false);
   };
 
@@ -112,7 +131,7 @@ export default function Contact() {
                 margin: "1rem",
               },
               !matches2 && {
-                width: "90%",
+                width: "50%",
               },
             ]}
           >
@@ -127,7 +146,7 @@ export default function Contact() {
               all your glass needs.
             </Typography>
           </Container>
-          <Container sx={[{ margin: "1rem" }]}>
+          <Container sx={[{ margin: "1rem" }, !matches2 && { width: "50%" }]}>
             <TextField
               label="Name"
               sx={{ margin: ".5rem" }}
@@ -166,56 +185,60 @@ export default function Contact() {
                 style={{ display: "flex", width: "80%" }}
                 justifyContent="space-between"
               >
-                {["Shower Doors", "Shelves", "Store Fronts"].map(
-                  (content, i) => (
-                    <FormControlLabel
-                      key={i}
-                      label={content}
-                      control={<Checkbox />}
-                      style={{ whiteSpace: "nowrap", width: "170px" }}
-                      value={content}
-                      onChange={(e) => {
-                        //@ts-ignore
-                        e.target.checked
-                          ? //@ts-ignore
-                            services.push(e.target.value)
-                          : setServices(
-                              services.filter(
-                                //@ts-ignore
-                                (service) => service !== e.target.value
-                              )
-                            );
-                      }}
-                    />
-                  )
-                )}
+                {[
+                  { label: "Shower Doors", name: "showerDoors" },
+                  { label: "Shelves", name: "shelves" },
+                  { label: "Glass Partition", name: "glassPartition" },
+                ].map((content: any) => (
+                  <FormControlLabel
+                    key={uniqueId()}
+                    label={content.label}
+                    control={
+                      <Checkbox
+                        checked={services[content.name]}
+                        onChange={() => {
+                          setServices((prev: any) => {
+                            return {
+                              ...prev,
+                              [content.name]: !services[content.name],
+                            };
+                          });
+                        }}
+                      />
+                    }
+                    style={{ whiteSpace: "nowrap", width: "0px" }}
+                    value={content.label}
+                  />
+                ))}
               </Stack>
-            </FormGroup>
-            <FormGroup>
               <Stack
                 direction={{ xs: "column", lg: "row" }}
                 style={{ display: "flex", width: "80%" }}
                 justifyContent="space-between"
               >
-                {["Glass Partition", "Mirrors", "Other"].map((content, i) => (
+                {[
+                  { label: "Store Fronts", name: "storeFronts" },
+                  { label: "Mirrors", name: "mirrors" },
+                  { label: "Others", name: "other" },
+                ].map((content) => (
                   <FormControlLabel
-                    key={i}
-                    label={content}
-                    control={<Checkbox />}
-                    style={{ whiteSpace: "nowrap", width: "170px" }}
-                    value={content}
-                    onChange={(e) => {
-                      //@ts-ignore
-                      e.target.checked
-                        ? //@ts-ignore
-                          services.push(e.target.value)
-                        : setServices(
-                            services.filter(
-                              //@ts-ignore
-                              (service) => service !== e.target.value
-                            )
-                          );
-                    }}
+                    key={uniqueId()}
+                    label={content.label}
+                    control={
+                      <Checkbox
+                        checked={services[content.name]}
+                        onChange={() => {
+                          setServices((prev: any) => {
+                            return {
+                              ...prev,
+                              [content.name]: !services[content.name],
+                            };
+                          });
+                        }}
+                      />
+                    }
+                    style={{ whiteSpace: "nowrap", width: "0px" }}
+                    value={content.label}
                   />
                 ))}
               </Stack>
