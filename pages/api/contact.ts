@@ -16,6 +16,16 @@ export default async function handler(
       const phoneNumberReg = /^\d{10}$/;
       const errors: string[] = [];
 
+      if (
+        !name ||
+        !email ||
+        !phoneNumber ||
+        services.length === 0 ||
+        !message
+      ) {
+        errors.push("Please complete all fields.");
+      }
+
       if (!name) {
         errors.push("Please enter a name!");
       }
@@ -56,13 +66,19 @@ export default async function handler(
         subject: "Message from Charlie Glass Inc.",
         html: `
           <h1>From ${name},</h1>
-          <h3>${email}</h3>
-          <h3>${phoneNumber}</h3>
-          <h4>${services}</h4>
-          <h4>${message}</h4>
+          <h2>Services Requested</h2>
+          ${`<ul>${services.map(
+            (service: string) => `<li>${service}</li>`
+          )}</ul>`
+            .toString()
+            .replaceAll(",", "")}
+          <h3>Message</h3>
+          <p>${message}</p>
+          <h5>Email: ${email}</h5>
+          <h5>Phone Number: ${phoneNumber}</h5>
           `,
       };
-      // sgMail.send(msg);
+      sgMail.send(msg);
       return res.json({ success: true });
     } catch (err) {
       console.log(err);

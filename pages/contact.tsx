@@ -176,7 +176,7 @@ export default function Contact() {
                     label={content.label}
                     control={<Checkbox />}
                     style={{ whiteSpace: "nowrap", width: "170px" }}
-                    value={content.name}
+                    value={content.label}
                     onChange={(e) => {
                       //@ts-ignore
                       e.target.checked
@@ -209,7 +209,7 @@ export default function Contact() {
                     label={content.label}
                     control={<Checkbox />}
                     style={{ whiteSpace: "nowrap", width: "170px" }}
-                    value={content.name}
+                    value={content.label}
                     onChange={(e) => {
                       //@ts-ignore
                       e.target.checked
