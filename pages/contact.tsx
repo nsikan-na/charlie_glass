@@ -16,7 +16,6 @@ import {
 } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
-import { uniqueId } from "lodash";
 export default function Contact() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -170,7 +169,7 @@ export default function Contact() {
                 {["Shower Doors", "Shelves", "Store Fronts"].map(
                   (content, i) => (
                     <FormControlLabel
-                      key={uniqueId()}
+                      key={i}
                       label={content}
                       control={<Checkbox />}
                       style={{ whiteSpace: "nowrap", width: "170px" }}
@@ -200,7 +199,7 @@ export default function Contact() {
               >
                 {["Glass Partition", "Mirrors", "Other"].map((content, i) => (
                   <FormControlLabel
-                    key={uniqueId()}
+                    key={i}
                     label={content}
                     control={<Checkbox />}
                     style={{ whiteSpace: "nowrap", width: "170px" }}
