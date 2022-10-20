@@ -89,10 +89,13 @@ export default async function handler(
           <div>${phoneNumber}</div>
           `,
       };
-      sgMail.send(msg);
+      await sgMail.send(msg);
+      res.status(200).send("Message sent successfully.");
+
       return res.json({ success: true });
     } catch (err) {
-      console.log(err);
+      console.log("ERROR", err);
+      res.status(400).send("Message not sent.");
     }
   }
 }
