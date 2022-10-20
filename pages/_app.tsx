@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
@@ -15,6 +15,7 @@ import {
   ListItemText,
   Stack,
   CssBaseline,
+  useMediaQuery,
 } from "@mui/material";
 import "../styles/index.css";
 import Link from "next/link";
@@ -51,6 +52,7 @@ const theme = createTheme({
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const Context = createContext({});
+  const matches = useMediaQuery("(min-width:600px)");
   const { pathname } = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const handleOpenNavMenu = (event: any) => {
@@ -246,12 +248,12 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                 margin: "1rem 0 0 0",
               }}
             >
-              <img src="/1.png" alt="First slide" height="800px" width="100%" />
+              <img src="/1.png" alt="First slide" height="400px" width="100%" />
               <Box
                 sx={{
                   background: "rgba(0, 0, 0, .6)",
                   width: "100%",
-                  height: "99%",
+                  height: "98%",
                   position: "absolute",
                   top: "0%",
                   left: "50%",
@@ -259,23 +261,38 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                 }}
               >
                 <Container
-                  sx={{
-                    position: "absolute",
-                    top: "20%",
-                    left: "50%",
-                    transform: "translate(-50%,30%)",
-                  }}
+                  sx={[
+                    {
+                      position: "absolute",
+                      top: "20%",
+                      left: "50%",
+                    },
+                    !matches && {
+                      transform: "translate(-50%,-20%)",
+                    },
+                    matches && { transform: "translate(-50%,-10%)" },
+
+                  ]}
                 >
                   <Typography
                     variant="h4"
-                    sx={{ margin: "1rem", fontWeight: "bold" }}
+                    sx={[
+                      {
+                        margin: "4rem 0 0",
+                        fontWeight: "bold",
+                      },
+                      !matches && { fontSize: "1.5rem" },
+                    ]}
                   >
                     GET A FREE ESTIMATE TODAY
                   </Typography>
 
                   <Typography
                     variant="body1"
-                    sx={{ width: "70%", margin: "auto" }}
+                    sx={[
+                      { width: "90%", margin: "auto" },
+                      !matches && { fontSize: "1rem" },
+                    ]}
                   >
                     The all-in-one shop for all of your glass work desires is
                     Charlie Glass. Together, we will design a layout that
@@ -285,13 +302,19 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                   <Link href="/contact" style={{ textDecoration: "none" }}>
                     <Button
                       variant="contained"
-                      sx={{
-                        marginTop: "1rem",
-                        backgroundColor: "#151E3E",
-                        "&:hover": {
-                          backgroundColor: "#5A5A5A",
+                      sx={[
+                        {
+                          marginTop: "1rem",
+
+                          backgroundColor: "#151E3E",
+                          "&:hover": {
+                            backgroundColor: "#5A5A5A",
+                          },
                         },
-                      }}
+                        !matches && {
+                          fontSize: ".75rem",
+                        },
+                      ]}
                     >
                       Contact Us
                     </Button>
