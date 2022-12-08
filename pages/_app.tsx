@@ -85,7 +85,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <meta name="googlebot" content="noindex,nofollow" />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <meta name="google" content="notranslate" key="notranslate" />
-        <link rel="icon" href="/titleicon.png" />
+        <link rel="icon" href="/logo1small.png" />
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
