@@ -23,6 +23,8 @@ import { AppProps } from "next/app";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { useRouter } from "next/router";
 import { uniqueId } from "lodash";
+import Head from "next/head";
+
 const theme = createTheme({
   typography: {
     h1: {
@@ -53,6 +55,7 @@ const theme = createTheme({
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const Context = createContext({});
   const matches = useMediaQuery("(min-width:600px)");
+  const matches2 = useMediaQuery("(max-width:1400px)");
   const { pathname } = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const handleOpenNavMenu = (event: any) => {
@@ -70,6 +73,19 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
 
   return (
     <>
+      <Head>
+        <title>Charlie Glass Inc</title>
+        <meta name="description" content="Charlie Glass Inc" key="desc" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:title" content="Charlie Glass Inc" />
+        <meta property="og:description" content="Charlie Glass Inc" />
+        <meta property="og:image" content="/titleicon.png" />
+        <meta name="robots" content="all" />
+        <meta name="googlebot" content="noindex,nofollow" />
+        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
+        <meta name="google" content="notranslate" key="notranslate" />
+        <link rel="icon" href="/titleicon.png" />
+      </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Context.Provider value={{}}>
@@ -80,27 +96,22 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             >
               <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                  <Link href="/" style={{ textDecoration: "none" }}>
-                    <Typography
-                      variant="h5"
-                      noWrap
-                      component="a"
+                  <Link
+                    href="/"
+                    style={{ textDecoration: "none" }}
+                    passHref={true}
+                  >
+                    <Box
+                      component="img"
+                      src="/logo2.png"
+                      alt="Charlie Glass Inc."
+                      width={"15%"}
+                      height={"15%"}
                       sx={[
-                        {
-                          mr: 2,
-                          display: { xs: "none", md: "flex" },
-                          fontWeight: 700,
-                          letterSpacing: ".3rem",
-                          color: "#151E3E",
-                          textDecoration: "none",
-                          "&:hover": {
-                            cursor: "pointer",
-                          },
-                        },
+                        { margin: ".5rem", display: "flex", cursor: "pointer" },
+                        matches2 && { display: "none" },
                       ]}
-                    >
-                      Charlie Glass Inc.
-                    </Typography>
+                    />
                   </Link>
                   <Box
                     sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
@@ -138,6 +149,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                           <Link
                             href={page.path}
                             style={{ textDecoration: "none", color: "#151E3E" }}
+                            passHref={true}
                           >
                             <Typography textAlign="center">
                               {page.label}
@@ -147,30 +159,19 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                       ))}
                     </Menu>
                   </Box>
-                  <Stack justifyContent="right">
-                    <Link href="/" style={{ textDecoration: "none" }}>
-                      <Typography
-                        variant="h5"
-                        noWrap
-                        textAlign="right"
-                        component="a"
-                        sx={[
-                          {
-                            display: { xs: "flex", md: "none" },
-                            flexGrow: 1,
-                            fontWeight: 700,
-                            color: "#151E3E",
-                            textDecoration: "none",
-                            "&:hover": {
-                              cursor: "pointer",
-                            },
-                          },
-                        ]}
-                      >
-                        Charlie Glass Inc.
-                      </Typography>
-                    </Link>
-                  </Stack>
+                  <Link href="/" style={{ textDecoration: "none" }}>
+                    <Box
+                      component="img"
+                      src="/logo2small.png"
+                      alt="Charlie Glass Inc."
+                      width={"15%"}
+                      height={"15%"}
+                      sx={[
+                        { margin: ".5rem", display: "none", cursor: "pointer" },
+                        matches2 && { display: "flex" },
+                      ]}
+                    />
+                  </Link>
                   <Box
                     sx={{
                       flexGrow: 1,
@@ -271,7 +272,6 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                       transform: "translate(-50%,-20%)",
                     },
                     matches && { transform: "translate(-50%,-10%)" },
-
                   ]}
                 >
                   <Typography
@@ -299,7 +299,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     expresses your business, lifestyle, and creativity. We are
                     ready to help you achieve your next project today.
                   </Typography>
-                  <Link href="/contact" style={{ textDecoration: "none" }}>
+                  <Link
+                    href="/contact"
+                    style={{ textDecoration: "none" }}
+                    passHref={true}
+                  >
                     <Button
                       variant="contained"
                       sx={[

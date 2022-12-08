@@ -62,28 +62,30 @@ const Home = () => {
           >
             <Container maxWidth="xl">
               <Toolbar disableGutters>
-                <Link href="/" style={{ textDecoration: "none" }}>
-                  <Typography
-                    variant="h5"
-                    noWrap
-                    component="a"
-                    sx={{
-                      mr: 2,
-                      display: { xs: "none", md: "flex" },
-                      fontWeight: 700,
-                      letterSpacing: ".3rem",
-                      color: "white",
-                      textDecoration: "none",
-                      "&:hover": {
-                        cursor: "pointer",
-                      },
-                    }}
-                  >
-                    Charlie Glass Inc.
-                  </Typography>
+                <Link
+                  href="/"
+                  style={{ textDecoration: "none" }}
+                  passHref={true}
+                >
+                  <Box
+                    component="img"
+                    src="/logo1.png"
+                    alt="Charlie Glass Inc."
+                    width={"15%"}
+                    height={"15%"}
+                    sx={[
+                      { margin: ".5rem", display: "flex", cursor: "pointer" },
+                      matches2 && { display: "none" },
+                    ]}
+                  />
                 </Link>
-
-                <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                <Box
+                  sx={{
+                    flexGrow: 1,
+                    display: { xs: "flex", md: "none" },
+                    justifyContent: "space-between",
+                  }}
+                >
                   <IconButton
                     size="large"
                     aria-label="account of current user"
@@ -117,6 +119,7 @@ const Home = () => {
                         <Link
                           href={page.path}
                           style={{ textDecoration: "none", color: "#151E3E" }}
+                          passHref={true}
                         >
                           <Typography textAlign="center">
                             {page.label}
@@ -126,27 +129,23 @@ const Home = () => {
                     ))}
                   </Menu>
                 </Box>
-                <Stack justifyContent="right">
-                  <Link href="/" style={{ textDecoration: "none" }}>
-                    <Typography
-                      variant="h5"
-                      noWrap
-                      component="a"
-                      sx={{
-                        display: { xs: "flex", md: "none" },
-                        flexGrow: 1,
-                        fontWeight: 700,
-                        color: "white",
-                        textDecoration: "none",
-                        "&:hover": {
-                          cursor: "pointer",
-                        },
-                      }}
-                    >
-                      Charlie Glass Inc.
-                    </Typography>
-                  </Link>
-                </Stack>
+                <Link
+                  href="/"
+                  style={{ textDecoration: "none" }}
+                  passHref={true}
+                >
+                  <Box
+                    component="img"
+                    src="/logo1small.png"
+                    alt="Charlie Glass Inc."
+                    width={"15%"}
+                    height={"15%"}
+                    sx={[
+                      { margin: ".5rem", display: "none", cursor: "pointer" },
+                      matches2 && { display: "flex" },
+                    ]}
+                  />
+                </Link>
                 <Box
                   sx={{
                     flexGrow: 1,
@@ -214,25 +213,22 @@ const Home = () => {
           >
             <Container maxWidth="xl">
               <Toolbar disableGutters>
-                <Link href="/" style={{ textDecoration: "none" }}>
-                  <Typography
-                    variant="h5"
-                    noWrap
-                    component="a"
-                    sx={{
-                      mr: 2,
-                      display: { xs: "none", md: "flex" },
-                      fontWeight: 700,
-                      letterSpacing: ".3rem",
-                      color: "#151E3E",
-                      textDecoration: "none",
-                      "&:hover": {
-                        cursor: "pointer",
-                      },
-                    }}
-                  >
-                    Charlie Glass Inc.
-                  </Typography>
+                <Link
+                  href="/"
+                  style={{ textDecoration: "none" }}
+                  passHref={true}
+                >
+                  <Box
+                    component="img"
+                    src="/logo2.png"
+                    alt="Charlie Glass Inc."
+                    width={"15%"}
+                    height={"15%"}
+                    sx={[
+                      { margin: ".5rem", display: "flex", cursor: "pointer" },
+                      matches2 && { display: "none" },
+                    ]}
+                  />
                 </Link>
 
                 <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -269,6 +265,7 @@ const Home = () => {
                         <Link
                           href={page.path}
                           style={{ textDecoration: "none", color: "#151E3E" }}
+                          passHref={true}
                         >
                           <Typography textAlign="center">
                             {page.label}
@@ -278,29 +275,23 @@ const Home = () => {
                     ))}
                   </Menu>
                 </Box>
-                <Stack justifyContent="right">
-                  <Link href="/" style={{ textDecoration: "none" }}>
-                    <Typography
-                      variant="h5"
-                      noWrap
-                      component="a"
-                      sx={[
-                        {
-                          display: { xs: "flex", md: "none" },
-                          flexGrow: 1,
-                          fontWeight: 700,
-                          color: "#151E3E",
-                          textDecoration: "none",
-                          "&:hover": {
-                            cursor: "pointer",
-                          },
-                        },
-                      ]}
-                    >
-                      Charlie Glass Inc.
-                    </Typography>
-                  </Link>
-                </Stack>
+                <Link
+                  href="/"
+                  style={{ textDecoration: "none" }}
+                  passHref={true}
+                >
+                  <Box
+                    component="img"
+                    src="/logo2small.png"
+                    alt="Charlie Glass Inc."
+                    width={"15%"}
+                    height={"15%"}
+                    sx={[
+                      { margin: ".5rem", display: "none", cursor: "pointer" },
+                      matches2 && { display: "flex" },
+                    ]}
+                  />
+                </Link>
                 <Box
                   sx={{
                     flexGrow: 1,
@@ -518,7 +509,7 @@ const Home = () => {
               );
             })}
           </Stack>
-        </Box>{" "}
+        </Box>
       </Box>
     </>
   );
