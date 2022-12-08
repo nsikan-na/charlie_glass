@@ -54,7 +54,8 @@ const theme = createTheme({
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const Context = createContext({});
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:500px)");
+  const matches3 = useMediaQuery("(max-width:500px)");
   const matches2 = useMediaQuery("(max-width:1400px)");
   const { pathname } = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -148,7 +149,10 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                         <MenuItem key={uniqueId()} onClick={handleCloseNavMenu}>
                           <Link
                             href={page.path}
-                            style={{ textDecoration: "none", color: "#151E3E" }}
+                            style={{
+                              textDecoration: "none",
+                              color: "#151E3E",
+                            }}
                             passHref={true}
                           >
                             <Typography textAlign="center">
@@ -165,10 +169,18 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                       src="/logo2small.png"
                       alt="Charlie Glass Inc."
                       width={"15%"}
-                      height={"15%"}
+                      height={"80%"}
                       sx={[
-                        { margin: ".5rem", display: "none", cursor: "pointer" },
+                        {
+                          margin: ".5rem",
+                          display: "none",
+                          cursor: "pointer",
+                        },
                         matches2 && { display: "flex" },
+                        !matches3 && {
+                          width: "5%",
+                          height: "5%",
+                        },
                       ]}
                     />
                   </Link>

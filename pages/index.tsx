@@ -19,7 +19,8 @@ import { uniqueId } from "lodash";
 import { useRouter } from "next/router";
 import Link from "next/link";
 const Home = () => {
-  const matches = useMediaQuery("(min-width:600px)");
+  const matches = useMediaQuery("(min-width:500px)");
+  const matches3 = useMediaQuery("(max-width:500px)");
   const matches2 = useMediaQuery("(max-width:1400px)");
   const [offset, setOffset] = useState(0);
   const { pathname } = useRouter();
@@ -139,10 +140,14 @@ const Home = () => {
                     src="/logo1small.png"
                     alt="Charlie Glass Inc."
                     width={"15%"}
-                    height={"15%"}
+                    height={"80%"}
                     sx={[
                       { margin: ".5rem", display: "none", cursor: "pointer" },
                       matches2 && { display: "flex" },
+                      !matches3 && {
+                        width: "5%",
+                        height: "5%",
+                      },
                     ]}
                   />
                 </Link>
@@ -285,10 +290,14 @@ const Home = () => {
                     src="/logo2small.png"
                     alt="Charlie Glass Inc."
                     width={"15%"}
-                    height={"15%"}
+                    height={"80%"}
                     sx={[
                       { margin: ".5rem", display: "none", cursor: "pointer" },
                       matches2 && { display: "flex" },
+                      !matches3 && {
+                        width: "5%",
+                        height: "5%",
+                      },
                     ]}
                   />
                 </Link>
