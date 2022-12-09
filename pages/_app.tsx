@@ -80,7 +80,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:title" content="Charlie Glass Inc" />
         <meta property="og:description" content="Charlie Glass Inc" />
-        <meta property="og:image" content="/titleicon.png" />
+        <meta property="og:image" content="/logo1small.png" />
         <meta name="robots" content="all" />
         <meta name="googlebot" content="noindex,nofollow" />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
