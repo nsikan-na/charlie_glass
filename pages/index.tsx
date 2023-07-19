@@ -41,7 +41,7 @@ const Home = () => {
     { path: "/", label: "Home" },
     // { path: "/services", label: "Services" },
     // { path: "/gallery", label: "Gallery" },
-    { path: "/contact", label: "Contact" },
+    { path: "/contact", label: "Contact Us" },
   ];
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -119,7 +119,11 @@ const Home = () => {
                       <MenuItem key={uniqueId()} onClick={handleCloseNavMenu}>
                         <Link
                           href={page.path}
-                          style={{ textDecoration: "none", color: "#151E3E" }}
+                          style={{
+                            textDecoration: "none",
+                            color: "#151E3E",
+                            margin: "1rem",
+                          }}
                           passHref={true}
                         >
                           <Typography textAlign="center">
@@ -177,6 +181,7 @@ const Home = () => {
                             border: "none",
                             boxShadow: "none",
                             color: "white",
+                            margin: "1rem",
                             "&:hover": {
                               backgroundColor: "white",
                               border: "none",
@@ -269,7 +274,11 @@ const Home = () => {
                       <MenuItem key={uniqueId()} onClick={handleCloseNavMenu}>
                         <Link
                           href={page.path}
-                          style={{ textDecoration: "none", color: "#151E3E" }}
+                          style={{
+                            textDecoration: "none",
+                            color: "#151E3E",
+                            margin: "1rem",
+                          }}
                           passHref={true}
                         >
                           <Typography textAlign="center">
@@ -327,6 +336,7 @@ const Home = () => {
                             backgroundColor: "rgba(0, 0, 0, 0)",
                             border: "none",
                             boxShadow: "none",
+                            margin: "1rem",
                             "&:hover": {
                               backgroundColor: "#151E3E",
                               border: "none",
@@ -383,7 +393,7 @@ const Home = () => {
           />
           <Box
             sx={{
-              background: "rgba(0, 0, 0, .1)",
+              background: "rgba(0, 0, 0, .2)",
               width: "100%",
               height: "100%",
               position: "absolute",

@@ -69,7 +69,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     { path: "/", label: "Home" },
     // { path: "/services", label: "Services" },
     // { path: "/gallery", label: "Gallery" },
-    { path: "/contact", label: "Contact" },
+    { path: "/contact", label: "Contact Us" },
   ];
 
   return (
@@ -152,6 +152,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                             style={{
                               textDecoration: "none",
                               color: "#151E3E",
+                              margin: "1rem",
                             }}
                             passHref={true}
                           >
@@ -204,6 +205,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                           onClick={handleCloseNavMenu}
                           sx={[
                             {
+                              margin: "1rem",
                               my: 2,
                               color: "#151E3E",
                               display: "block",
@@ -391,7 +393,6 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           </Box>
         </Context.Provider>
       </ThemeProvider>
-      z
     </>
   );
 }
