@@ -39,7 +39,7 @@ const Home = () => {
   }, []);
   const pages = [
     { path: "/", label: "Home" },
-    { path: "/services", label: "Services" },
+    // { path: "/services", label: "Services" },
     { path: "/gallery", label: "Gallery" },
     { path: "/contact", label: "Contact" },
   ];
@@ -157,7 +157,7 @@ const Home = () => {
                     display: { xs: "none", md: "flex" },
                     justifyContent: "center",
                     alignItems: "center",
-                    marginLeft: "5rem",
+                    marginLeft: "12rem",
                   }}
                 >
                   {pages.map((page) => (
@@ -205,8 +205,8 @@ const Home = () => {
                   sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
                   alignItems="flex-end"
                 >
-                  <Typography variant="body1">Call here</Typography>
-                  <Typography variant="body1">(718)-765-0087</Typography>
+                  <Typography variant="body1">Call now</Typography>
+                  <Typography variant="body1">(718)-765-1432</Typography>
                 </Stack>
               </Toolbar>
             </Container>
@@ -307,7 +307,7 @@ const Home = () => {
                     display: { xs: "none", md: "flex" },
                     justifyContent: "center",
                     alignItems: "center",
-                    marginLeft: "5rem",
+                    marginLeft: "12rem",
                   }}
                 >
                   {pages.map((page) => (
@@ -359,8 +359,8 @@ const Home = () => {
                   }}
                   alignItems="flex-end"
                 >
-                  <Typography variant="body1">Call here</Typography>
-                  <Typography variant="body1">(718)-765-0087</Typography>
+                  <Typography variant="body1">Call now</Typography>
+                  <Typography variant="body1">(718)-765-1432</Typography>
                 </Stack>
               </Toolbar>
             </Container>
@@ -412,10 +412,10 @@ const Home = () => {
                 direction={{ xs: "column", sm: "row" }}
               >
                 <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                  326 50th st. Brooklyn, NY 11220
+                  113 53th st. Broklyn, NY 11432
                 </Typography>
                 <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                  INFO@CHARLIEGLASSINC.COM
+                  charlieglassinc@gmail.com
                 </Typography>
               </Stack>
             </Container>

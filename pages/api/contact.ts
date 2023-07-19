@@ -89,7 +89,8 @@ export default async function handler(
           <div>${phoneNumber}</div>
           `,
       };
-      await sgMail.send(msg);
+      console.log(msg);
+      // await sgMail.send(msg);
 
       return res.json({ success: true });
     } catch (err) {

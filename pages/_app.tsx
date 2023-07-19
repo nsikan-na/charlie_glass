@@ -67,7 +67,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   };
   const pages = [
     { path: "/", label: "Home" },
-    { path: "/services", label: "Services" },
+    // { path: "/services", label: "Services" },
     { path: "/gallery", label: "Gallery" },
     { path: "/contact", label: "Contact" },
   ];
@@ -190,7 +190,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                       display: { xs: "none", md: "flex" },
                       justifyContent: "center",
                       alignItems: "center",
-                      marginLeft: "5rem",
+                      marginLeft: "12rem",
                     }}
                   >
                     {pages.map((page) => (
@@ -242,8 +242,8 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
                     }}
                     alignItems="flex-end"
                   >
-                    <Typography variant="body1">Call here</Typography>
-                    <Typography variant="body1">(718)-765-0087</Typography>
+                    <Typography variant="body1">Call now</Typography>
+                    <Typography variant="body1">(718)-765-1432</Typography>
                   </Stack>
                 </Toolbar>
               </Container>
@@ -356,9 +356,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
               direction={{ xs: "column", sm: "row" }}
             >
               {[
-                { title: "Located at ", p: "326 50th st. Brooklyn, NY 11220" },
-                { title: "Call Us", p: "(718)-765-0087" },
-                { title: "Email @", p: "info@charlieglassinc.com" },
+                { title: "Located at ", p: "113 53th st. Broklyn, NY 11432" },
+                { title: "Call Us", p: "(718)-765-1432" },
+                { title: "Email @", p: "charlieglassinc@gmail.com" },
                 { title: "Open Monday-Friday", p: " 8am - 5pm" },
               ].map((content) => {
                 return (
@@ -391,6 +391,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           </Box>
         </Context.Provider>
       </ThemeProvider>
+      z
     </>
   );
 }
