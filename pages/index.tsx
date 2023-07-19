@@ -40,7 +40,7 @@ const Home = () => {
   const pages = [
     { path: "/", label: "Home" },
     // { path: "/services", label: "Services" },
-    { path: "/gallery", label: "Gallery" },
+    // { path: "/gallery", label: "Gallery" },
     { path: "/contact", label: "Contact" },
   ];
   useEffect(() => {
@@ -375,10 +375,15 @@ const Home = () => {
           height="100vh"
           width="100%"
         >
-          <img src="/2.png" alt="First slide" height="100%" width="100%" />
+          <img
+            src="/iStock-502706671.jpeg"
+            alt="First slide"
+            height="100%"
+            width="100%"
+          />
           <Box
             sx={{
-              background: "rgba(0, 0, 0, .6)",
+              background: "rgba(0, 0, 0, .1)",
               width: "100%",
               height: "100%",
               position: "absolute",

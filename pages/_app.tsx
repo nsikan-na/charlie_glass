@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const pages = [
     { path: "/", label: "Home" },
     // { path: "/services", label: "Services" },
-    { path: "/gallery", label: "Gallery" },
+    // { path: "/gallery", label: "Gallery" },
     { path: "/contact", label: "Contact" },
   ];
 
