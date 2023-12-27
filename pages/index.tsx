@@ -422,15 +422,12 @@ const Home = () => {
                 Charlie Glass Inc.
               </Typography>
               <Stack
-                justifyContent="space-evenly"
+                justifyContent="center"
                 alignItems="center"
                 direction={{ xs: "column", sm: "row" }}
               >
                 <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                  113 53th st. Broklyn, NY 11432
-                </Typography>
-                <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                  charlieglassinc@gmail.com
+                  NEW YORK'S PREMIER GLASS INSTALLATION
                 </Typography>
               </Stack>
             </Container>
